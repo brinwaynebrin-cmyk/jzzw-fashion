@@ -1,0 +1,8 @@
+{
+  "name": "jzzw-website",
+  "version": "1.0.0",
+  "description": "JZZW Fashion Website",
+  "scripts": {
+    "start": "serve -l 3000"
+  }
+}
