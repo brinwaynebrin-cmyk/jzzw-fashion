@@ -1,0 +1,664 @@
+{%- comment -%}
+  JZZW V9 Brutalist - Shopify Section
+  Balenciaga-style bold asymmetric design
+{%- endcomment -%}
+
+<style>
+.jzzw-v9-brutalist * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.jzzw-v9-brutalist {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #f2f2f2;
+  color: #000;
+  min-height: 100vh;
+}
+
+.jzzw-v9-brutalist ::selection {
+  background: #ff3d00;
+  color: #fff;
+}
+
+/* Brutalist Nav */
+.jzzw-v9-brutalist .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: stretch;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.jzzw-v9-brutalist .nav-brand {
+  padding: 1rem 2rem;
+  background: #ff3d00;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.jzzw-v9-brutalist .nav-links {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.jzzw-v9-brutalist .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.2s;
+}
+
+.jzzw-v9-brutalist .nav-links a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Hero */
+.jzzw-v9-brutalist .hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  position: relative;
+}
+
+.jzzw-v9-brutalist .hero-left {
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5rem;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+}
+
+.jzzw-v9-brutalist .hero-right {
+  background: #ff3d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.jzzw-v9-brutalist .hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.jzzw-v9-brutalist .hero-title {
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  margin-bottom: 2rem;
+}
+
+.jzzw-v9-brutalist .hero-title span {
+  display: block;
+}
+
+.jzzw-v9-brutalist .hero-title .outline {
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
+.jzzw-v9-brutalist .hero-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  max-width: 300px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.jzzw-v9-brutalist .hero-btn {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: #ff3d00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.jzzw-v9-brutalist .hero-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Right side */
+.jzzw-v9-brutalist .hero-right-text {
+  font-size: clamp(6rem, 15vw, 14rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.15);
+  position: absolute;
+  white-space: nowrap;
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.jzzw-v9-brutalist .hero-right-stamp {
+  position: relative;
+  z-index: 2;
+  width: 180px;
+  height: 180px;
+  border: 3px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Marquee Strip */
+.jzzw-v9-brutalist .strip {
+  background: #000;
+  color: #fff;
+  padding: 1rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.jzzw-v9-brutalist .strip-inner {
+  display: inline-block;
+  animation: stripMove 12s linear infinite;
+}
+
+.jzzw-v9-brutalist .strip-item {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  padding: 0 3rem;
+}
+
+.jzzw-v9-brutalist .strip-item .dot {
+  color: #ff3d00;
+  margin-right: 2rem;
+}
+
+@keyframes stripMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Products Grid */
+.jzzw-v9-brutalist .work-section {
+  padding: 6rem 2rem;
+}
+
+.jzzw-v9-brutalist .work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+
+.jzzw-v9-brutalist .work-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.jzzw-v9-brutalist .work-counter {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(0,0,0,0.3);
+}
+
+.jzzw-v9-brutalist .work-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+}
+
+.jzzw-v9-brutalist .work-item {
+  background: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.jzzw-v9-brutalist .work-item:hover {
+  transform: scale(1.02);
+}
+
+.jzzw-v9-brutalist .work-item:nth-child(1) { grid-column: 1 / 6; grid-row: 1 / 3; }
+.jzzw-v9-brutalist .work-item:nth-child(2) { grid-column: 6 / 9; grid-row: 1; }
+.jzzw-v9-brutalist .work-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1 / 2; }
+.jzzw-v9-brutalist .work-item:nth-child(4) { grid-column: 6 / 10; grid-row: 2; }
+.jzzw-v9-brutalist .work-item:nth-child(5) { grid-column: 10 / 13; grid-row: 2 / 4; }
+.jzzw-v9-brutalist .work-item:nth-child(6) { grid-column: 1 / 5; grid-row: 3; }
+.jzzw-v9-brutalist .work-item:nth-child(7) { grid-column: 5 / 10; grid-row: 3; }
+
+.jzzw-v9-brutalist .work-item-inner {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+
+.jzzw-v9-brutalist .work-item:nth-child(1) .work-item-inner { min-height: 400px; }
+.jzzw-v9-brutalist .work-item:nth-child(5) .work-item-inner { min-height: 300px; }
+
+.jzzw-v9-brutalist .work-item-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.jzzw-v9-brutalist .work-item-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.jzzw-v9-brutalist .work-item-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  color: #ff3d00;
+}
+
+.jzzw-v9-brutalist .work-item-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.3rem 0.8rem;
+  background: #ff3d00;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.jzzw-v9-brutalist .work-item.accent {
+  background: #ff3d00;
+}
+
+.jzzw-v9-brutalist .work-item.dark {
+  background: #1a1a1a;
+}
+
+/* Manifesto */
+.jzzw-v9-brutalist .manifesto {
+  padding: 8rem 2rem;
+  background: #000;
+  color: #fff;
+}
+
+.jzzw-v9-brutalist .manifesto-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.jzzw-v9-brutalist .manifesto-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: #ff3d00;
+  margin-bottom: 3rem;
+  display: block;
+}
+
+.jzzw-v9-brutalist .manifesto-text {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.jzzw-v9-brutalist .manifesto-text strong {
+  color: #ff3d00;
+  font-weight: 700;
+}
+
+/* Stats */
+.jzzw-v9-brutalist .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 2px solid rgba(255,255,255,0.1);
+  margin-top: 4rem;
+}
+
+.jzzw-v9-brutalist .stat {
+  padding: 3rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.jzzw-v9-brutalist .stat:last-child {
+  border: none;
+}
+
+.jzzw-v9-brutalist .stat-num {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #ff3d00;
+  display: block;
+}
+
+.jzzw-v9-brutalist .stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Footer */
+.jzzw-v9-brutalist .footer {
+  background: #f2f2f2;
+  padding: 4rem 2rem;
+  border-top: 3px solid #000;
+}
+
+.jzzw-v9-brutalist .footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.jzzw-v9-brutalist .footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.jzzw-v9-brutalist .footer-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.jzzw-v9-brutalist .footer-right {
+  display: flex;
+  gap: 3rem;
+}
+
+.jzzw-v9-brutalist .footer-col h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: rgba(0,0,0,0.4);
+}
+
+.jzzw-v9-brutalist .footer-col a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.jzzw-v9-brutalist .footer-col a:hover {
+  color: #ff3d00;
+}
+
+.jzzw-v9-brutalist .footer-bottom {
+  padding-top: 2rem;
+  border-top: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(0,0,0,0.4);
+}
+
+@media (max-width: 900px) {
+  .jzzw-v9-brutalist .hero {
+    grid-template-columns: 1fr;
+  }
+  .jzzw-v9-brutalist .hero-left {
+    clip-path: none;
+    padding: 6rem 2rem 3rem;
+  }
+  .jzzw-v9-brutalist .hero-right {
+    min-height: 40vh;
+  }
+  .jzzw-v9-brutalist .work-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .jzzw-v9-brutalist .work-item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .jzzw-v9-brutalist .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .jzzw-v9-brutalist .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .jzzw-v9-brutalist .stats {
+    grid-template-columns: 1fr;
+  }
+  .jzzw-v9-brutalist .nav-links {
+    display: none;
+  }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<div class="jzzw-v9-brutalist" id="jzzw-v9-brutalist">
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="nav-brand">{{ section.settings.brand_name | default: 'JZZW' }}</a>
+    <div class="nav-links">
+      <a href="#work">{{ section.settings.nav_work | default: 'Work' }}</a>
+      <a href="#about">{{ section.settings.nav_about | default: 'About' }}</a>
+      <a href="#contact">{{ section.settings.nav_contact | default: 'Contact' }}</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-tag">{{ section.settings.hero_tag | default: 'SS 2026 COLLECTION' }}</span>
+      <h1 class="hero-title">
+        <span>{{ section.settings.hero_line1 | default: 'NOT' }}</span>
+        <span class="outline">{{ section.settings.hero_line2 | default: 'FOR' }}</span>
+        <span>{{ section.settings.hero_line3 | default: 'EVERYONE' }}</span>
+      </h1>
+      <p class="hero-sub">{{ section.settings.hero_sub | default: '47 quality checkpoints. Japanese fabrics. New York finishing. Zero compromises.' }}</p>
+      <a href="#work" class="hero-btn">{{ section.settings.hero_btn | default: 'Shop Now →' }}</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-text">JZZW JZZW JZZW JZZW JZZW JZZW JZZW</div>
+      <div class="hero-right-stamp">{{ section.settings.hero_stamp | default: 'HANDMADE<br>IN NYC<br>↻' }}</div>
+    </div>
+  </section>
+
+  <!-- Strip -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text1 | default: 'FREE SHIPPING WORLDWIDE' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text2 | default: '47 QUALITY CHECKPOINTS' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text3 | default: 'LIMITED PRODUCTION' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text4 | default: 'JAPANESE FABRICS' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text1 | default: 'FREE SHIPPING WORLDWIDE' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text2 | default: '47 QUALITY CHECKPOINTS' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text3 | default: 'LIMITED PRODUCTION' }}</span>
+      <span class="strip-item"><span class="dot">●</span>{{ section.settings.strip_text4 | default: 'JAPANESE FABRICS' }}</span>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <section class="work-section" id="work">
+    <div class="work-header">
+      <h2 class="work-title">{{ section.settings.work_title | default: 'The Drop' }}</h2>
+      <p class="work-counter">{{ section.settings.work_counter | default: '04 / Available' }}</p>
+    </div>
+    <div class="work-grid">
+      {% for block in section.blocks %}
+        <div class="work-item{% if block.settings.style == 'accent' %} accent{% elsif block.settings.style == 'dark' %} dark{% endif %}" {{ block.shopify_attributes }}>
+          <div class="work-item-inner">
+            <div>
+              <span class="work-item-num">{{ block.settings.num | default: '001' }}</span>
+              {% if block.settings.tag != blank %}<span class="work-item-tag">{{ block.settings.tag }}</span>{% endif %}
+            </div>
+            <div>
+              <h3 class="work-item-name">{{ block.settings.product_name | default: 'Product' }}</h3>
+              <p class="work-item-price">{{ block.settings.product_price | default: '$185' }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="manifesto" id="about">
+    <div class="manifesto-inner">
+      <span class="manifesto-label">{{ section.settings.manifesto_label | default: 'MANIFESTO' }}</span>
+      <p class="manifesto-text">{{ section.settings.manifesto_text | default: "We don't do <strong>fast fashion</strong>.<br>We don't do <strong>trend chasing</strong>.<br>We do <strong>obsession</strong>." }}</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-num">{{ section.settings.stat1_num | default: '47' }}</span><span class="stat-label">{{ section.settings.stat1_label | default: 'Quality Checks' }}</span></div>
+        <div class="stat"><span class="stat-num">{{ section.settings.stat2_num | default: '6' }}</span><span class="stat-label">{{ section.settings.stat2_label | default: 'Months Per Piece' }}</span></div>
+        <div class="stat"><span class="stat-num">{{ section.settings.stat3_num | default: '3' }}</span><span class="stat-label">{{ section.settings.stat3_label | default: 'Countries Sourced' }}</span></div>
+        <div class="stat"><span class="stat-num">{{ section.settings.stat4_num | default: '0' }}</span><span class="stat-label">{{ section.settings.stat4_label | default: 'Compromises' }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">{{ section.settings.brand_name | default: 'JZZW' }}</div>
+        <div class="footer-right">
+          <div class="footer-col"><h4>Shop</h4><a href="#">All Products</a><a href="#">New Arrivals</a><a href="#">Pre-Order</a></div>
+          <div class="footer-col"><h4>Brand</h4><a href="#">About</a><a href="#">Lookbook</a><a href="#">Stockists</a></div>
+          <div class="footer-col"><h4>Social</h4><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Twitter</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© {{ 'now' | date: '%Y' }} JZZW</p>
+        <p>{{ section.settings.footer_location | default: 'NYC → TOKYO → MILAN' }}</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "JZZW V9 Brutalist",
+  "tag": "section",
+  "class": "jzzw-section",
+  "settings": [
+    { "type": "text", "id": "brand_name", "label": "Brand Name", "default": "JZZW" },
+    { "type": "text", "id": "hero_tag", "label": "Hero Tag", "default": "SS 2026 COLLECTION" },
+    { "type": "text", "id": "hero_line1", "label": "Hero Line 1", "default": "NOT" },
+    { "type": "text", "id": "hero_line2", "label": "Hero Line 2", "default": "FOR" },
+    { "type": "text", "id": "hero_line3", "label": "Hero Line 3", "default": "EVERYONE" },
+    { "type": "textarea", "id": "hero_sub", "label": "Hero Subtitle", "default": "47 quality checkpoints. Japanese fabrics. New York finishing. Zero compromises." },
+    { "type": "text", "id": "hero_btn", "label": "Hero Button", "default": "Shop Now →" },
+    { "type": "text", "id": "hero_stamp", "label": "Hero Stamp Text", "default": "HANDMADE<br>IN NYC<br>↻" },
+    { "type": "text", "id": "strip_text1", "label": "Strip Text 1", "default": "FREE SHIPPING WORLDWIDE" },
+    { "type": "text", "id": "strip_text2", "label": "Strip Text 2", "default": "47 QUALITY CHECKPOINTS" },
+    { "type": "text", "id": "strip_text3", "label": "Strip Text 3", "default": "LIMITED PRODUCTION" },
+    { "type": "text", "id": "strip_text4", "label": "Strip Text 4", "default": "JAPANESE FABRICS" },
+    { "type": "text", "id": "work_title", "label": "Products Title", "default": "The Drop" },
+    { "type": "text", "id": "work_counter", "label": "Products Counter", "default": "04 / Available" },
+    { "type": "text", "id": "manifesto_label", "label": "Manifesto Label", "default": "MANIFESTO" },
+    { "type": "richtext", "id": "manifesto_text", "label": "Manifesto Text", "default": "<p>We don't do <strong>fast fashion</strong>.<br>We don't do <strong>trend chasing</strong>.<br>We do <strong>obsession</strong>.</p>" },
+    { "type": "text", "id": "stat1_num", "label": "Stat 1 Number", "default": "47" },
+    { "type": "text", "id": "stat1_label", "label": "Stat 1 Label", "default": "Quality Checks" },
+    { "type": "text", "id": "stat2_num", "label": "Stat 2 Number", "default": "6" },
+    { "type": "text", "id": "stat2_label", "label": "Stat 2 Label", "default": "Months Per Piece" },
+    { "type": "text", "id": "stat3_num", "label": "Stat 3 Number", "default": "3" },
+    { "type": "text", "id": "stat3_label", "label": "Stat 3 Label", "default": "Countries Sourced" },
+    { "type": "text", "id": "stat4_num", "label": "Stat 4 Number", "default": "0" },
+    { "type": "text", "id": "stat4_label", "label": "Stat 4 Label", "default": "Compromises" },
+    { "type": "text", "id": "nav_work", "label": "Nav: Work", "default": "Work" },
+    { "type": "text", "id": "nav_about", "label": "Nav: About", "default": "About" },
+    { "type": "text", "id": "nav_contact", "label": "Nav: Contact", "default": "Contact" },
+    { "type": "text", "id": "footer_location", "label": "Footer Location", "default": "NYC → TOKYO → MILAN" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "limit": 7,
+      "settings": [
+        { "type": "text", "id": "num", "label": "Product Number", "default": "001" },
+        { "type": "text", "id": "product_name", "label": "Product Name", "default": "Obsidian Bomber" },
+        { "type": "text", "id": "product_price", "label": "Product Price", "default": "$320" },
+        { "type": "text", "id": "tag", "label": "Tag (optional)", "default": "PRE-ORDER" },
+        { "type": "select", "id": "style", "label": "Style", "default": "default", "options": [
+          { "value": "default", "label": "Default (Black)" },
+          { "value": "accent", "label": "Accent (Orange)" },
+          { "value": "dark", "label": "Dark (Dark Gray)" }
+        ]}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JZZW V9 Brutalist",
+      "blocks": [
+        { "type": "product", "settings": { "num": "001", "product_name": "Obsidian Bomber", "product_price": "$320", "tag": "PRE-ORDER", "style": "default" } },
+        { "type": "product", "settings": { "num": "002", "product_name": "Gold Seam Hoodie", "product_price": "$185", "tag": "", "style": "default" } },
+        { "type": "product", "settings": { "num": "003", "product_name": "Archive Trench", "product_price": "$450", "tag": "", "style": "accent" } },
+        { "type": "product", "settings": { "num": "004", "product_name": "Signature Tee", "product_price": "$95", "tag": "", "style": "default" } },
+        { "type": "product", "settings": { "num": "005", "product_name": "Shadow Cargo", "product_price": "$240", "tag": "", "style": "dark" } },
+        { "type": "product", "settings": { "num": "006", "product_name": "Midnight Denim", "product_price": "$280", "tag": "", "style": "default" } },
+        { "type": "product", "settings": { "num": "007", "product_name": "Noir Cap", "product_price": "$65", "tag": "", "style": "accent" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
