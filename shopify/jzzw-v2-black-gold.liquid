@@ -1,0 +1,157 @@
+﻿{%- comment -%} JZZW V2 Black Gold Luxury - Shopify Section {%- endcomment -%}
+<style>
+.jzzw-v2-gold *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v2-gold{font-family:'Bebas Neue',sans-serif;background:#0d0d0d;color:#f5f0e8;min-height:100vh;overflow-x:hidden}
+.jzzw-v2-gold ::selection{background:#d4af37;color:#000}
+.jzzw-v2-gold .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;background:rgba(13,13,13,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,.15)}
+.jzzw-v2-gold .nav-brand{font-size:1.5rem;letter-spacing:.2em;color:#d4af37;text-decoration:none}
+.jzzw-v2-gold .nav-links{display:flex;gap:3rem}
+.jzzw-v2-gold .nav-links a{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#f5f0e8;opacity:.5;transition:all .3s}
+.jzzw-v2-gold .nav-links a:hover,.jzzw-v2-gold .nav-links a.active{opacity:1;color:#d4af37}
+.jzzw-v2-gold .hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative}
+.jzzw-v2-gold .hero-left{background:linear-gradient(135deg,#0d0d0d 0%,#1a1a1a 100%);display:flex;flex-direction:column;justify-content:center;padding:4rem 5rem;position:relative;overflow:hidden}
+.jzzw-v2-gold .hero-left::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,175,55,.08) 0%,transparent 60%)}
+.jzzw-v2-gold .hero-tag{font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.4em;color:#d4af37;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+.jzzw-v2-gold .hero-tag::before{content:'';display:inline-block;width:30px;height:1px;background:#d4af37}
+.jzzw-v2-gold .hero-title{font-size:clamp(3.5rem,10vw,8rem);line-height:.9;letter-spacing:.02em;margin-bottom:2rem;position:relative}
+.jzzw-v2-gold .hero-title .gold{color:#d4af37}
+.jzzw-v2-gold .hero-sub{font-family:'Space Grotesk',sans-serif;font-size:.9rem;line-height:1.9;color:rgba(245,240,232,.4);max-width:400px;margin-bottom:3rem;font-weight:300}
+.jzzw-v2-gold .hero-cta{display:flex;gap:1rem}
+.jzzw-v2-gold .btn-gold{padding:1rem 2.5rem;background:#d4af37;color:#0d0d0d;text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:all .3s}
+.jzzw-v2-gold .btn-gold:hover{background:#e8c84a;transform:translateY(-2px)}
+.jzzw-v2-gold .btn-outline{padding:1rem 2.5rem;background:transparent;color:#f5f0e8;text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(245,240,232,.2);transition:all .3s}
+.jzzw-v2-gold .btn-outline:hover{border-color:#d4af37;color:#d4af37}
+.jzzw-v2-gold .hero-right{background:linear-gradient(135deg,#1a1208 0%,#2a1f0a 50%,#1a1208 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.jzzw-v2-gold .hero-right::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(212,175,55,.03) 2px,rgba(212,175,55,.03) 4px)}
+.jzzw-v2-gold .hero-emblem{width:300px;height:300px;border:2px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1rem;letter-spacing:.4em;color:#d4af37;position:relative;animation:rotate 20s linear infinite}
+.jzzw-v2-gold .hero-emblem::before{content:'';position:absolute;width:330px;height:330px;border:1px solid rgba(212,175,55,.1);border-radius:50%}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.jzzw-v2-gold .strip{background:#d4af37;padding:1rem 0;overflow:hidden;white-space:nowrap}
+.jzzw-v2-gold .strip-inner{display:inline-block;animation:stripMove 15s linear infinite}
+.jzzw-v2-gold .strip-item{font-family:'Space Grotesk',sans-serif;font-size:.75rem;letter-spacing:.3em;color:#0d0d0d;display:inline-block;padding:0 2rem;font-weight:600}
+@keyframes stripMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.jzzw-v2-gold .products{padding:6rem 4rem}
+.jzzw-v2-gold .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding:0 1rem;border-left:3px solid #d4af37}
+.jzzw-v2-gold .section-label{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.3em;color:#d4af37;margin-bottom:.5rem}
+.jzzw-v2-gold .section-title{font-size:clamp(2rem,5vw,4rem);letter-spacing:.02em}
+.jzzw-v2-gold .section-count{font-family:'Space Grotesk',sans-serif;font-size:.75rem;color:rgba(245,240,232,.3)}
+.jzzw-v2-gold .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.jzzw-v2-gold .product-card{background:#1a1a1a;border:1px solid rgba(212,175,55,.1);transition:all .4s;position:relative;overflow:hidden}
+.jzzw-v2-gold .product-card:hover{border-color:rgba(212,175,55,.4);transform:translateY(-4px)}
+.jzzw-v2-gold .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#d4af37;transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.jzzw-v2-gold .product-card:hover::before{transform:scaleX(1)}
+.jzzw-v2-gold .product-img{aspect-ratio:3/4;background:linear-gradient(135deg,#1a1a1a 0%,#252525 100%);position:relative;display:flex;align-items:center;justify-content:center}
+.jzzw-v2-gold .product-glyph{font-size:4rem;color:rgba(212,175,55,.1)}
+.jzzw-v2-gold .product-badge{position:absolute;top:1rem;right:1rem;background:#d4af37;color:#0d0d0d;font-family:'Space Grotesk',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.1em;padding:.3rem .6rem}
+.jzzw-v2-gold .product-info{padding:1.5rem}
+.jzzw-v2-gold .product-name{font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:500;margin-bottom:.3rem}
+.jzzw-v2-gold .product-meta{font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:rgba(245,240,232,.3);margin-bottom:.5rem}
+.jzzw-v2-gold .product-price{font-size:1.1rem;color:#d4af37;font-weight:600}
+.jzzw-v2-gold .manifesto{background:linear-gradient(180deg,rgba(212,175,55,.03) 0%,transparent 100%);padding:8rem 4rem;border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1)}
+.jzzw-v2-gold .manifesto-inner{max-width:900px;margin:0 auto;text-align:center}
+.jzzw-v2-gold .manifesto-label{font-family:'Space Grotesk',sans-serif;font-size:.65rem;letter-spacing:.5em;color:#d4af37;margin-bottom:3rem}
+.jzzw-v2-gold .manifesto-text{font-size:clamp(1.5rem,4vw,2.8rem);line-height:1.5;letter-spacing:.01em;font-weight:400}
+.jzzw-v2-gold .manifesto-text .gold{color:#d4af37}
+.jzzw-v2-gold .footer{background:#080808;padding:4rem 4rem;border-top:1px solid rgba(212,175,55,.15)}
+.jzzw-v2-gold .footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start}
+.jzzw-v2-gold .footer-brand{font-size:2rem;letter-spacing:.2em;color:#d4af37}
+.jzzw-v2-gold .footer-right{display:flex;gap:4rem}
+.jzzw-v2-gold .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#d4af37;margin-bottom:1.5rem}
+.jzzw-v2-gold .footer-col a{display:block;color:rgba(245,240,232,.4);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:.8rem;margin-bottom:.5rem;transition:color .3s}
+.jzzw-v2-gold .footer-col a:hover{color:#d4af37}
+.jzzw-v2-gold .footer-bottom{padding-top:2rem;margin-top:2rem;border-top:1px solid rgba(212,175,55,.08);display:flex;justify-content:space-between;font-family:'Space Grotesk',sans-serif;font-size:.7rem;color:rgba(245,240,232,.2)}
+@media(max-width:900px){
+.jzzw-v2-gold .hero{grid-template-columns:1fr}
+.jzzw-v2-gold .hero-right{min-height:50vh}
+.jzzw-v2-gold .products-grid{grid-template-columns:repeat(2,1fr)}
+.jzzw-v2-gold .nav{padding:1rem 2rem}
+.jzzw-v2-gold .footer{flex-direction:column;gap:2rem}
+.jzzw-v2-gold .footer-right{flex-wrap:wrap;gap:2rem}
+}
+@media(max-width:600px){
+.jzzw-v2-gold .products-grid{grid-template-columns:1fr}
+.jzzw-v2-gold .nav-links{display:none}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<div class="jzzw-v2-gold">
+<nav class="nav">
+<a href="/" class="nav-brand">{{ section.settings.brand_name | default: 'JZZW' }}</a>
+<div class="nav-links">
+<a href="#collection">{{ section.settings.nav_collection | default: 'Collection' }}</a>
+<a href="#manifesto">{{ section.settings.nav_manifesto | default: 'Manifesto' }}</a>
+<a href="#footer">{{ section.settings.nav_contact | default: 'Contact' }}</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">{{ section.settings.hero_tag | default: 'SS 2026 COLLECTION' }}</p>
+<h1 class="hero-title">{{ section.settings.hero_title | default: 'BLACK <span class="gold">GOLD</span><br>LUXURY' }}</h1>
+<p class="hero-sub">{{ section.settings.hero_sub | default: 'Where darkness meets opulence. Premium Japanese fabrics, hand-finished in New York. Crafted for those who demand excellence.' }}</p>
+<div class="hero-cta">
+<a href="#collection" class="btn-gold">{{ section.settings.cta_shop | default: 'Shop Now' }}</a>
+<a href="#manifesto" class="btn-outline">{{ section.settings.cta_story | default: 'Our Story' }}</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-emblem">{{ section.settings.emblem_text | default: 'JZZW<br>EST. 2024<br>★<br>PREMIUM' }}</div>
+</div>
+</section>
+<div class="strip">
+<div class="strip-inner">
+<span class="strip-item">★ FREE SHIPPING WORLDWIDE</span>
+<span class="strip-item">★ JAPANESE FABRICS</span>
+<span class="strip-item">★ HAND-FINISHED IN NYC</span>
+<span class="strip-item">★ LIMITED EDITION</span>
+<span class="strip-item">★ FREE SHIPPING WORLDWIDE</span>
+<span class="strip-item">★ JAPANESE FABRICS</span>
+<span class="strip-item">★ HAND-FINISHED IN NYC</span>
+<span class="strip-item">★ LIMITED EDITION</span>
+</div>
+</div>
+<section class="products" id="collection">
+<div class="section-header">
+<div>
+<p class="section-label">{{ section.settings.collection_label | default: 'THE COLLECTION' }}</p>
+<h2 class="section-title">{{ section.settings.collection_title | default: 'SS 2026 DROP' }}</h2>
+</div>
+<p class="section-count">{{ section.settings.collection_count | default: '04 PIECES' }}</p>
+</div>
+<div class="products-grid">
+{% for block in section.blocks %}
+<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">
+{% if block.settings.badge != blank %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}
+<span class="product-glyph">★</span>
+</div>
+<div class="product-info">
+<h3 class="product-name">{{ block.settings.product_name | default: 'Product' }}</h3>
+<p class="product-meta">{{ block.settings.product_detail | default: 'Premium Fabric' }}</p>
+<p class="product-price">{{ block.settings.product_price | default: '$185' }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="manifesto" id="manifesto">
+<div class="manifesto-inner">
+<p class="manifesto-label">{{ section.settings.manifesto_label | default: '★ MANIFESTO ★' }}</p>
+<p class="manifesto-text">{{ section.settings.manifesto_text | default: 'We don't follow trends. We set <span class="gold">the standard</span>. Every stitch, every seam, every thread — chosen with <span class="gold">obsessive precision</span>.' }}</p>
+</div>
+</section>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div class="footer-brand">{{ section.settings.brand_name | default: 'JZZW' }}</div>
+<div class="footer-right">
+<div class="footer-col"><h4>Shop</h4><a href="#">All Products</a><a href="#">New Arrivals</a><a href="#">Pre-Order</a></div>
+<div class="footer-col"><h4>Brand</h4><a href="#">About</a><a href="#">Lookbook</a><a href="#">Stockists</a></div>
+<div class="footer-col"><h4>Social</h4><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Twitter</a></div>
+</div>
+</div>
+<div class="footer-bottom"><p>© {{ 'now' | date: '%Y' }} JZZW</p><p>{{ section.settings.footer_tagline | default: 'BLACK GOLD LUXURY' }}</p></div>
+</div>
+</footer>
+</div>
+{% schema %}{"name":"JZZW V2 Black Gold","tag":"section","class":"jzzw-section","settings":[{"type":"text","id":"brand_name","label":"Brand Name","default":"JZZW"},{"type":"text","id":"hero_tag","label":"Hero Tag","default":"SS 2026 COLLECTION"},{"type":"textarea","id":"hero_title","label":"Hero Title","default":"BLACK <span class=\"gold\">GOLD</span><br>LUXURY"},{"type":"textarea","id":"hero_sub","label":"Hero Subtitle","default":"Where darkness meets opulence. Premium Japanese fabrics, hand-finished in New York."},{"type":"text","id":"cta_shop","label":"Shop Button","default":"Shop Now"},{"type":"text","id":"cta_story","label":"Story Button","default":"Our Story"},{"type":"text","id":"emblem_text","label":"Emblem Text","default":"JZZW<br>EST. 2024<br>★<br>PREMIUM"},{"type":"text","id":"collection_label","label":"Collection Label","default":"THE COLLECTION"},{"type":"text","id":"collection_title","label":"Collection Title","default":"SS 2026 DROP"},{"type":"text","id":"collection_count","label":"Collection Count","default":"04 PIECES"},{"type":"text","id":"manifesto_label","label":"Manifesto Label","default":"★ MANIFESTO ★"},{"type":"textarea","id":"manifesto_text","label":"Manifesto Text","default":"We don't follow trends. We set <span class=\"gold\">the standard</span>."},{"type":"text","id":"nav_collection","label":"Nav: Collection","default":"Collection"},{"type":"text","id":"nav_manifesto","label":"Nav: Manifesto","default":"Manifesto"},{"type":"text","id":"nav_contact","label":"Nav: Contact","default":"Contact"},{"type":"text","id":"footer_tagline","label":"Footer Tagline","default":"BLACK GOLD LUXURY"}],"blocks":[{"type":"product","name":"Product Card","limit":8,"settings":[{"type":"text","id":"product_name","label":"Product Name","default":"Obsidian Bomber"},{"type":"text","id":"product_price","label":"Price","default":"$320"},{"type":"text","id":"product_detail","label":"Detail","default":"Japanese Nylon"},{"type":"text","id":"badge","label":"Badge","default":"PRE-ORDER"}]}],"presets":[{"name":"JZZW V2 Black Gold","blocks":[{"type":"product","settings":{"product_name":"Obsidian Bomber","product_price":"$320","product_detail":"Japanese Nylon","badge":"PRE-ORDER"}},{"type":"product","settings":{"product_name":"Gold Seam Hoodie","product_price":"$185","product_detail":"400gsm Cotton","badge":""}},{"type":"product","settings":{"product_name":"Archive Trench","product_price":"$450","product_detail":"Italian Wool","badge":""}},{"type":"product","settings":{"product_name":"Signature Tee","product_price":"$95","product_detail":"Supima Cotton","badge":"NEW"}}]}]}{% endschema %}
