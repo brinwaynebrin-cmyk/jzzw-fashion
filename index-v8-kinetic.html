@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JZZW — Kinetic</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#f5f0e8;color:#0d0d0d;font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* Kinetic Hero */
+.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f5f0e8}
+
+/* Rotating background text */
+.bg-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none}
+.bg-text-inner{font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,20vw,18rem);color:rgba(0,0,0,.04);white-space:nowrap;animation:bgRotate 20s linear infinite;letter-spacing:.1em}
+@keyframes bgRotate{0%{transform:rotate(-5deg) translateX(-5%)}50%{transform:rotate(5deg) translateX(5%)}100%{transform:rotate(-5deg) translateX(-5%)}}
+
+/* Exploding title */
+.hero-title-wrap{position:relative;z-index:10;text-align:center}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,18vw,16rem);letter-spacing:.05em;line-height:.9;position:relative;display:inline-block}
+
+.hero-title .word{display:inline-block;overflow:hidden}
+.hero-title .word-inner{display:inline-block;transform:translateY(100%);animation:wordReveal .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title .word:nth-child(1) .word-inner{animation-delay:.2s}
+.hero-title .word:nth-child(2) .word-inner{animation-delay:.4s}
+
+@keyframes wordReveal{to{transform:translateY(0)}}
+
+.hero-accent{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(200px,40vw,400px);height:clamp(200px,40vw,400px);border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.15) 0%,transparent 70%);animation:pulse 4s ease-in-out infinite;pointer-events:none}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
+
+.hero-meta{position:absolute;bottom:3rem;left:4rem;right:4rem;display:flex;justify-content:space-between;align-items:flex-end;z-index:10}
+.hero-meta-left{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(0,0,0,.4);opacity:0;animation:fadeIn .8s ease forwards 1.2s}
+.hero-meta-right{text-align:right;opacity:0;animation:fadeIn .8s ease forwards 1.4s}
+.hero-meta-right p{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.4)}
+.hero-meta-right .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,#0d0d0d,transparent);margin:1rem auto 0}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Ticker */
+.ticker{background:#0d0d0d;padding:1.2rem 0;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 15s linear infinite;white-space:nowrap}
+.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.3em;padding:0 3rem;color:#f5f0e8;display:flex;align-items:center;gap:3rem}
+.ticker-item::after{content:'✦';color:#c9a96e;font-size:.8rem}
+
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Split Layout Section */
+.split-section{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.split-left{background:#0d0d0d;color:#f5f0e8;padding:8rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.split-right{background:#f5f0e8;padding:8rem 4rem;display:flex;flex-direction:column;justify-content:center}
+
+.split-left-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(201,169,110,.1) 0%,transparent 60%);pointer-events:none}
+
+.split-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:#c9a96e;margin-bottom:2rem}
+.split-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:.05em;line-height:1.1;margin-bottom:2rem}
+.split-text{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:400px}
+.split-right .split-text{color:rgba(0,0,0,.6)}
+
+/* Staggered product list */
+.product-list{margin-top:3rem}
+.product-item{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-bottom:1px solid rgba(0,0,0,.1);transform:translateX(-30px);opacity:0;transition:all .6s cubic-bezier(.16,1,.3,1)}
+.product-item.visible{transform:translateX(0);opacity:1}
+.product-item:nth-child(1){transition-delay:.1s}
+.product-item:nth-child(2){transition-delay:.2s}
+.product-item:nth-child(3){transition-delay:.3s}
+.product-item:nth-child(4){transition-delay:.4s}
+
+.product-item-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em}
+.product-item-price{font-size:.9rem;color:#c9a96e;font-weight:500}
+.product-item-arrow{width:40px;height:40px;border:1px solid rgba(0,0,0,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s ease;cursor:pointer}
+.product-item:hover .product-item-arrow{background:#0d0d0d;border-color:#0d0d0d;color:#f5f0e8}
+
+/* Countdown */
+.countdown-section{padding:10rem 4rem;background:#0d0d0d;text-align:center;position:relative;overflow:hidden}
+.countdown-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,169,110,.08) 0%,transparent 70%)}
+.countdown-label{font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:#c9a96e;margin-bottom:3rem}
+.countdown-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);letter-spacing:.1em;color:#f5f0e8;margin-bottom:4rem}
+.countdown-grid{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.countdown-item{text-align:center}
+.countdown-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);color:#f5f0e8;line-height:1;display:block;position:relative}
+.countdown-num::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(201,169,110,.3)}
+.countdown-unit{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.5rem}
+.countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);color:rgba(201,169,110,.3);line-height:1;align-self:flex-start}
+
+/* Footer */
+.footer{padding:6rem 4rem 3rem;background:#f5f0e8;border-top:1px solid rgba(0,0,0,.08)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.2em;margin-bottom:1rem}
+.footer-tagline{font-size:.9rem;color:rgba(0,0,0,.5);line-height:1.6}
+.footer-col h4{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:1.5rem}
+.footer-col a{display:block;color:rgba(0,0,0,.6);text-decoration:none;font-size:.9rem;margin-bottom:.75rem;transition:color .3s ease}
+.footer-col a:hover{color:#c9a96e}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:3rem;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:rgba(0,0,0,.4)}
+
+.version-switcher{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(0,0,0,.08);text-align:center}
+.version-switcher p{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:1rem}
+.version-buttons{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap}
+.version-btn{padding:.5rem 1.25rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .3s ease}
+.version-btn:hover{transform:translateY(-2px)}
+
+@media(max-width:900px){.split-section{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero-meta{display:none}.split-left,.split-right{padding:4rem 2rem}.countdown-section{padding:6rem 2rem}.footer-top{grid-template-columns:1fr}.footer{padding:4rem 2rem 3rem}}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="bg-text"><div class="bg-text-inner">JZZW JZZW JZZW JZZW JZZW JZZW</div></div>
+  <div class="hero-accent"></div>
+  <div class="hero-title-wrap">
+    <h1 class="hero-title">
+      <span class="word"><span class="word-inner">JZ</span></span><span class="word"><span class="word-inner">ZW</span></span>
+    </h1>
+    <p style="font-size:.8rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-top:1.5rem;opacity:0;animation:fadeIn .8s ease forwards .8s">American Luxury Streetwear</p>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-left">Est. 2024 — New York</div>
+    <div class="hero-meta-right">
+      <p>Scroll to explore</p>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">SS 2026 DROP</span>
+    <span class="ticker-item">LIMITED EDITION</span>
+    <span class="ticker-item">PRE-ORDER NOW</span>
+    <span class="ticker-item">FREE SHIPPING</span>
+    <span class="ticker-item">SS 2026 DROP</span>
+    <span class="ticker-item">LIMITED EDITION</span>
+    <span class="ticker-item">PRE-ORDER NOW</span>
+    <span class="ticker-item">FREE SHIPPING</span>
+  </div>
+</div>
+
+<!-- Split Section -->
+<section class="split-section">
+  <div class="split-left">
+    <div class="split-left-bg"></div>
+    <p class="split-label">The Brand</p>
+    <h2 class="split-title">BUILT<br>DIFFERENT</h2>
+    <p class="split-text">We don't follow seasons. We create moments. Each piece is designed to outlast trends and outlive hype.</p>
+  </div>
+  <div class="split-right">
+    <p class="split-label" style="color:#c9a96e">SS 2026 Collection</p>
+    <h2 class="split-title" style="color:#0d0d0d">THE DROP</h2>
+    <div class="product-list">
+      <div class="product-item">
+        <span class="product-item-name">Obsidian Bomber</span>
+        <span class="product-item-price">$320</span>
+        <div class="product-item-arrow">→</div>
+      </div>
+      <div class="product-item">
+        <span class="product-item-name">Gold Seam Hoodie</span>
+        <span class="product-item-price">$185</span>
+        <div class="product-item-arrow">→</div>
+      </div>
+      <div class="product-item">
+        <span class="product-item-name">Archive Trench</span>
+        <span class="product-item-price">$450</span>
+        <div class="product-item-arrow">→</div>
+      </div>
+      <div class="product-item">
+        <span class="product-item-name">Signature Tee</span>
+        <span class="product-item-price">$95</span>
+        <div class="product-item-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown -->
+<section class="countdown-section">
+  <div class="countdown-bg"></div>
+  <p class="countdown-label">Next Drop</p>
+  <h2 class="countdown-title">SS 2026 COLLECTION DROPS IN</h2>
+  <div class="countdown-grid">
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-days">00</span>
+      <p class="countdown-unit">Days</p>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-hours">00</span>
+      <p class="countdown-unit">Hours</p>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-mins">00</span>
+      <p class="countdown-unit">Minutes</p>
+    </div>
+    <div class="countdown-sep">:</div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-secs">00</span>
+      <p class="countdown-unit">Seconds</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">JZZW</div>
+        <p class="footer-tagline">American luxury streetwear.<br>Built for those who move first.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#">All Products</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Pre-Order</a>
+      </div>
+      <div class="footer-col">
+        <h4>Brand</h4>
+        <a href="#">About</a>
+        <a href="#">Lookbook</a>
+        <a href="#">Stockists</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 JZZW. All rights reserved.</p>
+    </div>
+    <div class="version-switcher">
+      <p>Design Versions</p>
+      <div class="version-buttons">
+        <a href="index.html" class="version-btn" style="background:#c4a77d;color:#0a0a0a">V1 Cream</a>
+        <a href="index-v3-luxe-street.html" class="version-btn" style="background:#1a1a1a;color:#d4af37;border:1px solid #d4af37">V2 Black Gold</a>
+        <a href="index-v4-med.html" class="version-btn" style="background:#8B7355;color:#fff">V3 Mediterranean</a>
+        <a href="index-v5-parallax.html" class="version-btn" style="background:#e94560;color:#0a0a0a">V4 Cinematic</a>
+        <a href="index-v6-particles.html" class="version-btn" style="background:#00d4ff;color:#000">V5 Digital</a>
+        <a href="index-v7-magnetic.html" class="version-btn" style="background:#c9a96e;color:#0d0d0d">V6 Magnetic</a>
+        <a href="index-v8-kinetic.html" class="version-btn" style="background:#0d0d0d;color:#f5f0e8;font-weight:600">V7 Kinetic ✦</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Countdown Timer — target: 2026-06-01
+const target=new Date('2026-06-01T00:00:00');
+function updateCountdown(){
+  const now=new Date();
+  const diff=target-now;
+  if(diff<=0){document.querySelector('.countdown-title').textContent='DROP IS LIVE';return}
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// Stagger product items on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.product-item').forEach(item=>item.classList.add('visible'))});
+},{threshold:.2});
+document.querySelectorAll('.product-list').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
