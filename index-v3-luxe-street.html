@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JZZW — Fashion for the Wild at Heart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0d0d0d;
+            --black-soft: #141414;
+            --white: #ffffff;
+            --gray-warm: #a8a4a0;
+            --gray-light: #e8e6e3;
+            --gold: #d4af37;
+            --gold-soft: rgba(212, 175, 55, 0.15);
+            --red-wine: #722f37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Noise + gradient overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 0%, rgba(212,175,55,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(114,47,55,0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(13,13,13,0.95), transparent);
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 3.5rem;
+            list-style: none;
+        }
+
+        .nav-center a {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gray-warm);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-center a:hover {
+            color: var(--gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-icon {
+            color: var(--gray-warm);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            color: var(--gold);
+        }
+
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--gray-warm);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            position: relative;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-eyebrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            max-width: 100px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-warm);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-desc {
+            font-size: 0.95rem;
+            color: var(--gray-warm);
+            max-width: 450px;
+            margin-bottom: 3rem;
+            line-height: 1.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(212,175,55,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid var(--gray-warm);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-image-frame {
+            width: 100%;
+            height: 80%;
+            background: var(--black-soft);
+            position: relative;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            top: 1rem; left: 1rem; right: -1rem; bottom: -1rem;
+            border: 1px solid rgba(212,175,55,0.1);
+            z-index: -1;
+        }
+
+        .hero-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gray-warm);
+            letter-spacing: 0.2em;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+            padding: 1.5rem 2rem;
+            background: rgba(13,13,13,0.9);
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .hero-badge-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-badge-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(212,175,55,0.2);
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gray-warm);
+            padding: 0 4rem;
+            white-space: nowrap;
+        }
+
+        .marquee-item span {
+            color: var(--gold);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Collection */
+        .collection {
+            padding: 6rem 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .section-title-group h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title-group p {
+            font-size: 0.9rem;
+            color: var(--gray-warm);
+        }
+
+        .section-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-image {
+            aspect-ratio: 3/4;
+            background: var(--black-soft);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 1px solid transparent;
+            transition: border-color 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            border-color: rgba(212,175,55,0.4);
+        }
+
+        .product-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gray-warm);
+            text-transform: uppercase;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.4rem 0.8rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .product-status {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-warm);
+        }
+
+        /* Editorial */
+        .editorial {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        .editorial-image {
+            background: var(--black-soft);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .editorial-image::before {
+            content: '';
+            position: absolute;
+            top: 2rem; left: 2rem; right: -2rem; bottom: -2rem;
+            border: 1px solid rgba(212,175,55,0.15);
+            z-index: 1;
+        }
+
+        .editorial-placeholder {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gray-warm);
+            letter-spacing: 0.2em;
+            z-index: 2;
+        }
+
+        .editorial-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%);
+        }
+
+        .editorial-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .editorial-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .editorial-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .editorial-text {
+            font-size: 0.95rem;
+            color: var(--gray-warm);
+            line-height: 2;
+            margin-bottom: 3rem;
+        }
+
+        /* Lookbook */
+        .lookbook {
+            padding: 6rem 4rem;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .lookbook-item {
+            aspect-ratio: 4/5;
+            background: var(--black-soft);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease;
+        }
+
+        .lookbook-item:hover {
+            transform: scale(0.98);
+        }
+
+        .lookbook-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .lookbook-placeholder {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gray-warm);
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 5rem 4rem 2rem;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-tagline {
+            color: var(--gray-warm);
+            font-size: 0.9rem;
+            line-height: 1.9;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-warm);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .footer-copy {
+            color: var(--gray-warm);
+            font-size: 0.75rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-social a {
+            color: var(--gray-warm);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 6rem 3rem 3rem; }
+            .hero-visual { min-height: 50vh; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .editorial { grid-template-columns: 1fr; }
+            .editorial-content { padding: 4rem; }
+            .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+            .lookbook-item.featured { grid-column: span 2; grid-row: span 1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-center { display: none; }
+            .product-grid { grid-template-columns: 1fr; }
+            .lookbook-grid { grid-template-columns: 1fr; }
+            .lookbook-item.featured { grid-column: span 1; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#" class="logo">JZZ<span>W</span></a>
+        <ul class="nav-center">
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#editorial">Editorial</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#journal">Journal</a></li>
+        </ul>
+        <div class="nav-right">
+            <span class="nav-icon">Search</span>
+            <button class="cart-btn">Cart (0)</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Spring / Summer 2026</p>
+            <h1 class="hero-title">
+                Fashion for<br>the <em>wild</em><br>at heart
+            </h1>
+            <p class="hero-subtitle">Limited Drops. No Restocks.</p>
+            <p class="hero-desc">
+                Meticulously crafted pieces for those who refuse to blend in. 
+                Each collection tells a story of rebellion, elegance, and uncompromising quality.
+            </p>
+            <div class="hero-cta">
+                <a href="#collection" class="btn-gold">Shop Collection</a>
+                <a href="#lookbook" class="btn-outline">View Lookbook</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-frame">
+                <div class="hero-placeholder">Hero Image</div>
+            </div>
+            <div class="hero-badge">
+                <p class="hero-badge-label">Next Drop</p>
+                <p class="hero-badge-value">48 Hours</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="marquee-section">
+        <div class="marquee">
+            <span class="marquee-item">Limited Quantities</span>
+            <span class="marquee-item"><span>★</span></span>
+            <span class="marquee-item">Premium Materials</span>
+            <span class="marquee-item"><span>★</span></span>
+            <span class="marquee-item">Made to Order</span>
+            <span class="marquee-item"><span>★</span></span>
+            <span class="marquee-item">No Restocks</span>
+            <span class="marquee-item"><span>★</span></span>
+            <span class="marquee-item">Limited Quantities</span>
+            <span class="marquee-item"><span>★</span></span>
+            <span class="marquee-item">Premium Materials</span>
+            <span class="marquee-item"><span>★</span></span>
+        </div>
+    </section>
+
+    <section class="collection" id="collection">
+        <div class="section-header">
+            <div class="section-title-group">
+                <h2>Pre-Order Collection</h2>
+                <p>Secure your size before we sell out. Ships in 3-4 weeks.</p>
+            </div>
+            <a href="#" class="section-link">View All →</a>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">New</span>
+                    <div class="product-placeholder">SS01</div>
+                </div>
+                <div class="product-info">
+                    <h3>Summer Project Retro Tee</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$85.00</span>
+                        <span class="product-status">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Hot</span>
+                    <div class="product-placeholder">SS02</div>
+                </div>
+                <div class="product-info">
+                    <h3>Midnight Run Hoodie</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$145.00</span>
+                        <span class="product-status">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-placeholder">SS03</div>
+                </div>
+                <div class="product-info">
+                    <h3>Street Archive Jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$220.00</span>
+                        <span class="product-status">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge">Limited</span>
+                    <div class="product-placeholder">SS04</div>
+                </div>
+                <div class="product-info">
+                    <h3>Concrete Cargo Pants</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$165.00</span>
+                        <span class="product-status">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial" id="editorial">
+        <div class="editorial-image">
+            <div class="editorial-placeholder">Campaign</div>
+        </div>
+        <div class="editorial-content">
+            <p class="editorial-label">Our Philosophy</p>
+            <h2 class="editorial-title">
+                We don't follow trends.<br>We <em>create</em> them.
+            </h2>
+            <p class="editorial-text">
+                Every piece is designed for those who live unapologetically. We believe in the power 
+                of limited quantities, premium materials, and designs that transcend seasons. 
+                This isn't fast fashion. This is your uniform for the extraordinary.
+            </p>
+            <a href="#" class="btn-outline">Read Our Story</a>
+        </div>
+    </section>
+
+    <section class="lookbook" id="lookbook">
+        <div class="section-header">
+            <div class="section-title-group">
+                <h2>The Lookbook</h2>
+                <p>Visual stories from our latest campaign</p>
+            </div>
+            <a href="#" class="section-link">View All →</a>
+        </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item featured">
+                <div class="lookbook-placeholder">Featured</div>
+            </div>
+            <div class="lookbook-item">
+                <div class="lookbook-placeholder">Look 02</div>
+            </div>
+            <div class="lookbook-item">
+                <div class="lookbook-placeholder">Look 03</div>
+            </div>
+            <div class="lookbook-item">
+                <div class="lookbook-placeholder">Look 04</div>
+            </div>
+            <div class="lookbook-item">
+                <div class="lookbook-placeholder">Look 05</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">JZZ<span>W</span></a>
+                <p class="footer-tagline">
+                    Fashion for the wild at heart. Build your capsule collection 
+                    with pieces that tell your story.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Shop</h4>
+                <ul class="footer-links">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Pre-Order</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="#">Stockists</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 JZZW. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
