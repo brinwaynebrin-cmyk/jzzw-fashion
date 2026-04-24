@@ -1,0 +1,210 @@
+﻿{% comment %} JZZW V13 Brutalist Luxe — Shopify Section (Balenciaga editorial) {% endcomment %}
+{%- comment -%} V13: Pure white + near black + blood red. Maximum contrast. Aggressive editorial. {%- endcomment -%}
+<style>
+.jzzw-v13{--white:#ffffff;--black:#0a0a0a;--red:#c41e3a;--taupe:#c4b49a;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',sans-serif}
+.jzzw-v13 *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v13{font-family:var(--sans);background:var(--white);color:var(--black);min-height:100vh;overflow-x:hidden;line-height:1.5}
+.jzzw-v13 ::selection{background:var(--black);color:var(--white)}
+.jzzw-v13 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3.5rem;border-bottom:2px solid var(--black);background:var(--white);z-index:200}
+.jzzw-v13 .nav-brand{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:.15em;text-decoration:none;color:var(--black);text-transform:uppercase}
+.jzzw-v13 .nav-links{display:flex;gap:2.5rem}
+.jzzw-v13 .nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--black);opacity:.4;transition:opacity .2s}
+.jzzw-v13 .nav-links a:hover{opacity:1}
+.jzzw-v13 .hero{min-height:100vh;display:grid;grid-template-columns:40% 60%;position:relative}
+.jzzw-v13 .hero-left{background:var(--black);color:var(--white);padding:7rem 3.5rem 5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:1}
+.jzzw-v13 .hero-season{font-size:.55rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:auto;padding-top:2rem}
+.jzzw-v13 .hero-title{font-family:var(--serif);font-size:clamp(3.5rem,9vw,8rem);font-weight:600;line-height:.88;letter-spacing:-.02em;text-transform:uppercase;margin:0}
+.jzzw-v13 .hero-title em{font-style:italic;font-weight:300;display:block}
+.jzzw-v13 .hero-cta{margin-top:auto;padding-bottom:1rem}
+.jzzw-v13 .btn-brut{padding:1.1rem 2.8rem;background:var(--red);color:var(--white);text-decoration:none;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:all .25s;display:inline-block;border:2px solid var(--red)}
+.jzzw-v13 .btn-brut:hover{background:transparent;color:var(--red)}
+.jzzw-v13 .hero-right{background:var(--taupe);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:3rem}
+.jzzw-v13 .hero-right::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(10,10,10,.04) 4px,rgba(10,10,10,.04) 5px)}
+.jzzw-v13 .hero-right::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(10,10,10,.08),transparent)}
+.jzzw-v13 .hero-img-text{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(5rem,12vw,10rem);font-weight:600;letter-spacing:-.04em;text-transform:uppercase;color:rgba(10,10,10,.15);line-height:.85}
+.jzzw-v13 .hero-caption{position:absolute;bottom:1.5rem;right:2rem;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,10,10,.3);z-index:2}
+.jzzw-v13 .strip{background:var(--red);padding:1.5rem 0;overflow:hidden;border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
+.jzzw-v13 .strip-inner{display:inline-flex;animation:marquee 12s linear infinite}
+.jzzw-v13 .strip-item{font-family:var(--serif);font-size:1.1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--white);padding:0 2.5rem;white-space:nowrap}
+.jzzw-v13 .strip-item::after{content:'✕';margin-left:2.5rem;opacity:.5}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.jzzw-v13 .editorial{padding:8rem 3.5rem;max-width:1400px;margin:0 auto}
+.jzzw-v13 .editorial-header{display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:end;margin-bottom:6rem;padding-bottom:3rem;border-bottom:2px solid var(--black)}
+.jzzw-v13 .editorial-num{font-family:var(--serif);font-size:5rem;font-weight:300;color:var(--black);line-height:1;opacity:.15}
+.jzzw-v13 .editorial-heading{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5rem);font-weight:600;text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
+.jzzw-v13 .editorial-body{font-size:.88rem;font-weight:300;line-height:2;color:rgba(10,10,10,.5);max-width:600px;margin:2rem 0 0 auto}
+.jzzw-v13 .products{padding:0 3.5rem 8rem;max-width:1400px;margin:0 auto}
+.jzzw-v13 .products-header{margin-bottom:4rem;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:2rem;border-bottom:2px solid var(--black)}
+.jzzw-v13 .products-label{font-size:.55rem;letter-spacing:.5em;text-transform:uppercase;color:var(--red);margin-bottom:.5rem}
+.jzzw-v13 .products-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:600;text-transform:uppercase;letter-spacing:-.01em}
+.jzzw-v13 .products-count{font-size:.7rem;letter-spacing:.15em;color:rgba(10,10,10,.25)}
+.jzzw-v13 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--black)}
+.jzzw-v13 .product-card{background:var(--white);border-right:1px solid rgba(10,10,10,.08);border-bottom:1px solid rgba(10,10,10,.08);transition:all .3s;position:relative}
+.jzzw-v13 .product-card:hover{background:var(--black);color:var(--white)}
+.jzzw-v13 .product-card:hover .product-price{color:var(--white)}
+.jzzw-v13 .product-card:hover .product-detail{color:rgba(255,255,255,.4)}
+.jzzw-v13 .product-img{aspect-ratio:3/4;background:linear-gradient(145deg,#f0ebe3 0%,#e2dbd1 100%);position:relative}
+.jzzw-v13 .product-img::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(10,10,10,.02) 3px,rgba(10,10,10,.02) 4px)}
+.jzzw-v13 .product-num{position:absolute;top:1.2rem;left:1.2rem;font-size:.55rem;letter-spacing:.15em;color:rgba(10,10,10,.2);z-index:1}
+.jzzw-v13 .product-badge{position:absolute;top:1.2rem;right:1.2rem;background:var(--red);color:var(--white);font-size:.5rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;z-index:1}
+.jzzw-v13 .product-info{padding:1.5rem 1.8rem;border-top:1px solid rgba(10,10,10,.08)}
+.jzzw-v13 .product-name{font-family:var(--serif);font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.3rem}
+.jzzw-v13 .product-detail{font-size:.72rem;color:rgba(10,10,10,.38);margin-bottom:.8rem;letter-spacing:.02em;transition:color .3s}
+.jzzw-v13 .product-price{font-family:var(--serif);font-size:1.15rem;font-weight:600;transition:color .3s}
+.jzzw-v13 .quote-section{padding:8rem 3.5rem;background:var(--black);color:var(--white);border-top:2px solid var(--black)}
+.jzzw-v13 .quote-inner{max-width:1400px;margin:0 auto}
+.jzzw-v13 .quote-label{font-size:.55rem;letter-spacing:.5em;text-transform:uppercase;color:var(--red);margin-bottom:3rem}
+.jzzw-v13 .quote-text{font-family:var(--serif);font-size:clamp(2.5rem,7vw,6rem);font-weight:300;font-style:italic;line-height:1.1;text-transform:uppercase;letter-spacing:-.02em}
+.jzzw-v13 .quote-text .white{font-style:normal;font-weight:600;color:var(--white)}
+.jzzw-v13 .quote-text .red{font-style:normal;font-weight:600;color:var(--red)}
+.jzzw-v13 .footer{background:var(--white);padding:3rem 3.5rem;border-top:2px solid var(--black)}
+.jzzw-v13 .footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v13 .footer-brand{font-family:var(--serif);font-size:1.2rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.jzzw-v13 .footer-links{display:flex;gap:2.5rem}
+.jzzw-v13 .footer-links a{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--black);opacity:.35;transition:opacity .2s}
+.jzzw-v13 .footer-links a:hover{opacity:1}
+.jzzw-v13 .footer-copy{font-size:.65rem;color:rgba(10,10,10,.2)}
+@media(max-width:1024px){.jzzw-v13 .products-grid{grid-template-columns:repeat(2,1fr)}.jzzw-v13 .editorial-header{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:768px){.jzzw-v13 .hero{grid-template-columns:1fr}.jzzw-v13 .hero-right{min-height:60vh}.jzzw-v13 .nav{padding:1rem 1.5rem}.jzzw-v13 .products{padding:0 1.5rem 5rem}.jzzw-v13 .editorial{padding:5rem 1.5rem}.jzzw-v13 .footer{flex-direction:column;gap:2rem;padding:2rem 1.5rem}}
+@media(max-width:480px){.jzzw-v13 .products-grid{grid-template-columns:1fr}.jzzw-v13 .nav-links{display:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<div class="jzzw-v13">
+<nav class="nav">
+<a href="/" class="nav-brand">{{ section.settings.brand | default: 'JZZW' }}</a>
+<div class="nav-links">
+<a href="#collection">{{ section.settings.n1 | default: 'Collection' }}</a>
+<a href="#editorial">{{ section.settings.n2 | default: 'Story' }}</a>
+<a href="#footer">{{ section.settings.n3 | default: 'Contact' }}</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-season">{{ section.settings.season | default: 'SS 2026 — BRUTALIST COLLECTION' }}</p>
+<h1 class="hero-title">{{ section.settings.title | default: 'BRUTAL<br><em>LUXE</em>' }}</h1>
+<div class="hero-cta"><a href="#collection" class="btn-brut">{{ section.settings.cta | default: 'Shop Now' }}</a></div>
+</div>
+<div class="hero-right">
+<span class="hero-img-text">{{ section.settings.hero_img | default: 'JZZW' }}</span>
+<span class="hero-caption">{{ section.settings.hero_caption | default: 'SS 2026 — Photography by JZZW Studio' }}</span>
+</div>
+</section>
+<div class="strip">
+<div class="strip-inner">
+<span class="strip-item">{{ section.settings.s1 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'BRUTALIST LUXE' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'NYC' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'LIMITED' }}</span>
+<span class="strip-item">{{ section.settings.s1 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'BRUTALIST LUXE' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'NYC' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'LIMITED' }}</span>
+</div>
+</div>
+<section class="editorial" id="editorial">
+<div class="editorial-header">
+<span class="editorial-num">{{ section.settings.ed_num | default: '01' }}</span>
+<div>
+<h2 class="editorial-heading">{{ section.settings.ed_title | default: 'BUILT<br>TO LAST' }}</h2>
+<p class="editorial-body">{{ section.settings.ed_body | default: 'Luxury is not soft. Luxury is the refusal to compromise. Every piece in the Brutalist collection is engineered with the precision of architecture, the confidence of engineering, and the soul of rebellion.' }}</p>
+</div>
+</div>
+</section>
+<section class="products" id="collection">
+<div class="products-header">
+<div>
+<p class="products-label">{{ section.settings.col_label | default: 'The Collection' }}</p>
+<h2 class="products-title">{{ section.settings.col_title | default: 'SS 2026' }}</h2>
+</div>
+<p class="products-count">{{ section.settings.col_count | default: '06 UNITS' }}</p>
+</div>
+<div class="products-grid">
+{% for block in section.blocks %}
+<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">
+<span class="product-num">{{ forloop.index | string | pad_left: 2, '0' }}</span>
+{% if block.settings.badge %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}
+</div>
+<div class="product-info">
+<h3 class="product-name">{{ block.settings.name | default: 'Product' }}</h3>
+<p class="product-detail">{{ block.settings.detail | default: 'Premium Fabric' }}</p>
+<p class="product-price">{{ block.settings.price | default: '$185' }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="quote-section" id="quote">
+<p class="quote-label">{{ section.settings.q_label | default: 'Manifesto' }}</p>
+<p class="quote-text">{{ section.settings.quote | default: 'The future is <span class="white">bold</span>.<br>The future is <span class="red">brutal</span>.' }}</p>
+</section>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div class="footer-brand">{{ section.settings.brand | default: 'JZZW' }}</div>
+<div class="footer-links">
+<a href="#">All Products</a>
+<a href="#">About</a>
+<a href="#">Stockists</a>
+<a href="#">Instagram</a>
+</div>
+<p class="footer-copy">© {{ 'now' | date: '%Y' }} — New York</p>
+</div>
+</footer>
+</div>
+{% schema %}
+{
+  "name": "JZZW V13 Brutalist Luxe",
+  "tag": "section",
+  "class": "jzzw-section",
+  "settings": [
+    {"type": "text", "id": "brand", "label": "Brand Name", "default": "JZZW"},
+    {"type": "text", "id": "season", "label": "Season Tag", "default": "SS 2026 — BRUTALIST COLLECTION"},
+    {"type": "textarea", "id": "title", "label": "Hero Title", "default": "BRUTAL<br><em>LUXE</em>"},
+    {"type": "text", "id": "cta", "label": "CTA Button", "default": "Shop Now"},
+    {"type": "text", "id": "hero_img", "label": "Hero Image Text", "default": "JZZW"},
+    {"type": "text", "id": "hero_caption", "label": "Hero Caption", "default": "SS 2026 — Photography by JZZW Studio"},
+    {"type": "text", "id": "s1", "label": "Strip 1", "default": "SS 2026"},
+    {"type": "text", "id": "s2", "label": "Strip 2", "default": "BRUTALIST LUXE"},
+    {"type": "text", "id": "s3", "label": "Strip 3", "default": "NYC"},
+    {"type": "text", "id": "s4", "label": "Strip 4", "default": "LIMITED"},
+    {"type": "text", "id": "n1", "label": "Nav 1", "default": "Collection"},
+    {"type": "text", "id": "n2", "label": "Nav 2", "default": "Story"},
+    {"type": "text", "id": "n3", "label": "Nav 3", "default": "Contact"},
+    {"type": "text", "id": "ed_num", "label": "Editorial Number", "default": "01"},
+    {"type": "textarea", "id": "ed_title", "label": "Editorial Title", "default": "BUILT<br>TO LAST"},
+    {"type": "textarea", "id": "ed_body", "label": "Editorial Body", "default": "Luxury is not soft. Luxury is the refusal to compromise."},
+    {"type": "text", "id": "col_label", "label": "Collection Label", "default": "The Collection"},
+    {"type": "text", "id": "col_title", "label": "Collection Title", "default": "SS 2026"},
+    {"type": "text", "id": "col_count", "label": "Collection Count", "default": "06 UNITS"},
+    {"type": "text", "id": "q_label", "label": "Quote Label", "default": "Manifesto"},
+    {"type": "textarea", "id": "quote", "label": "Quote Text", "default": "The future is <span class=\"white\">bold</span>.<br>The future is <span class=\"red\">brutal</span>."}
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "limit": 6,
+      "settings": [
+        {"type": "text", "id": "name", "label": "Product Name", "default": "Obsidian Bomber"},
+        {"type": "text", "id": "price", "label": "Price", "default": "$420"},
+        {"type": "text", "id": "detail", "label": "Detail", "default": "Italian Nylon"},
+        {"type": "text", "id": "badge", "label": "Badge", "default": "PRE-ORDER"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JZZW V13 Brutalist Luxe",
+      "blocks": [
+        {"type": "product", "settings": {"name": "Obsidian Bomber", "price": "$420", "detail": "Italian Nylon", "badge": "PRE-ORDER"}},
+        {"type": "product", "settings": {"name": "Brutalist Hoodie", "price": "$210", "detail": "Heavy Cotton 450gsm", "badge": ""}},
+        {"type": "product", "settings": {"name": "Archive Trench", "price": "$520", "detail": "Italian Wool", "badge": ""}},
+        {"type": "product", "settings": {"name": "Signature Tee", "price": "$110", "detail": "Supima Cotton", "badge": "NEW"}},
+        {"type": "product", "settings": {"name": "Shadow Cargo", "price": "$290", "detail": "Cotton Twill", "badge": ""}},
+        {"type": "product", "settings": {"name": "Midnight Denim", "price": "$340", "detail": "Selvedge Denim", "badge": ""}}
+      ]
+    }
+  ]
+}
+{% endschema %}
