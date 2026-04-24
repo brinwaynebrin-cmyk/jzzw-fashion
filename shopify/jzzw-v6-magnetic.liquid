@@ -1,0 +1,87 @@
+﻿{%- comment -%} JZZW V6 Magnetic Luxury - Shopify Section {%- endcomment -%}
+<style>
+.jzzw-v6-mag *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v6-mag{font-family:'DM Sans',sans-serif;background:#fff;color:#0d0d0d;min-height:100vh;overflow-x:hidden}
+.jzzw-v6-mag ::selection{background:#c9a96e;color:#fff}
+.jzzw-v6-mag .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.05);transition:all .3s}
+.jzzw-v6-mag .nav-brand{font-size:1.1rem;font-weight:600;letter-spacing:.35em;text-decoration:none;color:#0d0d0d}
+.jzzw-v6-mag .nav-links{display:flex;gap:2.5rem}
+.jzzw-v6-mag .nav-links a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#0d0d0d;opacity:.4;transition:all .3s}
+.jzzw-v6-mag .nav-links a:hover{opacity:1;color:#c9a96e}
+.jzzw-v6-mag .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.jzzw-v6-mag .hero-left{padding:8rem 4rem 4rem 6rem;display:flex;flex-direction:column;justify-content:center;position:relative}
+.jzzw-v6-mag .hero-tag{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:#c9a96e;margin-bottom:2rem}
+.jzzw-v6-mag .hero-title{font-size:clamp(3rem,7vw,5.5rem);font-weight:600;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem}
+.jzzw-v6-mag .hero-title em{font-style:italic;color:#c9a96e}
+.jzzw-v6-mag .hero-sub{font-size:.95rem;font-weight:300;line-height:1.9;color:rgba(13,13,13,.5);max-width:400px;margin-bottom:2.5rem}
+.jzzw-v6-mag .hero-actions{display:flex;gap:1rem;align-items:center}
+.jzzw-v6-mag .btn-mag-primary{padding:1rem 2.5rem;background:#0d0d0d;color:#fff;text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;transition:all .3s}
+.jzzw-v6-mag .btn-mag-primary:hover{background:#c9a96e}
+.jzzw-v6-mag .btn-mag-ghost{padding:1rem 2rem;background:transparent;color:#0d0d0d;text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(0,0,0,.1);transition:all .3s}
+.jzzw-v6-mag .btn-mag-ghost:hover{border-color:#c9a96e;color:#c9a96e}
+.jzzw-v6-mag .hero-right{background:linear-gradient(135deg,#e8e0d4 0%,#d4c8b8 50%,#c9a96e33 100%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.jzzw-v6-mag .hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,169,110,.3) 0%,transparent 50%)}
+.jzzw-v6-mag .hero-ring{width:280px;height:280px;border:1px solid rgba(201,169,110,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
+.jzzw-v6-mag .hero-ring::before{content:'';position:absolute;width:240px;height:240px;border:1px solid rgba(201,169,110,.2);border-radius:50%}
+.jzzw-v6-mag .hero-ring-inner{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(201,169,110,.8);text-align:center;line-height:2}
+.jzzw-v6-mag .products{padding:8rem 4rem}
+.jzzw-v6-mag .products-header{text-align:center;margin-bottom:5rem}
+.jzzw-v6-mag .products-label{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:#c9a96e;margin-bottom:1.5rem}
+.jzzw-v6-mag .products-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:600;letter-spacing:-.02em}
+.jzzw-v6-mag .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:1200px;margin:0 auto}
+.jzzw-v6-mag .product-card{background:#fff;border:1px solid rgba(0,0,0,.05);transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.jzzw-v6-mag .product-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08);border-color:rgba(201,169,110,.2)}
+.jzzw-v6-mag .product-img{aspect-ratio:3/4;background:linear-gradient(135deg,#f5f0eb 0%,#ebe4db 100%);position:relative;overflow:hidden}
+.jzzw-v6-mag .product-img::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(201,169,110,.15) 0%,transparent 50%)}
+.jzzw-v6-mag .product-num{position:absolute;top:1.2rem;left:1.2rem;font-size:.6rem;letter-spacing:.15em;color:rgba(0,0,0,.2)}
+.jzzw-v6-mag .product-badge{position:absolute;top:1.2rem;right:1.2rem;background:#c9a96e;color:#fff;font-size:.55rem;font-weight:600;letter-spacing:.1em;padding:.3rem .7rem}
+.jzzw-v6-mag .product-info{padding:1.8rem}
+.jzzw-v6-mag .product-name{font-size:1.1rem;font-weight:500;margin-bottom:.3rem}
+.jzzw-v6-mag .product-detail{font-size:.8rem;color:rgba(13,13,13,.4);margin-bottom:.8rem}
+.jzzw-v6-mag .product-price{font-size:1.1rem;font-weight:600;color:#c9a96e}
+.jzzw-v6-mag .quote-section{padding:8rem 4rem;background:#0d0d0d;color:#fff;text-align:center}
+.jzzw-v6-mag .quote-label{font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:#c9a96e;margin-bottom:2rem}
+.jzzw-v6-mag .quote-text{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:300;line-height:1.7;max-width:700px;margin:0 auto;font-style:italic}
+.jzzw-v6-mag .footer{background:#faf8f5;padding:4rem 4rem;border-top:1px solid rgba(0,0,0,.05)}
+.jzzw-v6-mag .footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v6-mag .footer-brand{font-size:1.2rem;font-weight:600;letter-spacing:.35em}
+.jzzw-v6-mag .footer-text{font-size:.75rem;color:rgba(13,13,13,.3)}
+@media(max-width:900px){.jzzw-v6-mag .hero{grid-template-columns:1fr}.jzzw-v6-mag .products-grid{grid-template-columns:repeat(2,1fr)}.jzzw-v6-mag .hero-right{min-height:50vh}.jzzw-v6-mag .nav{padding:1rem 2rem}}
+@media(max-width:600px){.jzzw-v6-mag .products-grid{grid-template-columns:1fr}.jzzw-v6-mag .nav-links{display:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<div class="jzzw-v6-mag">
+<nav class="nav"><a href="/" class="nav-brand">{{ section.settings.brand | default: 'JZZW' }}</a><div class="nav-links"><a href="#collection">{{ section.settings.n1 | default: 'Collection' }}</a><a href="#quote">{{ section.settings.n2 | default: 'Philosophy' }}</a><a href="#footer">{{ section.settings.n3 | default: 'Contact' }}</a></div></nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">{{ section.settings.tag | default: 'SS 2026 — New Collection' }}</p>
+<h1 class="hero-title">{{ section.settings.title | default: 'Magnetic<br><em>by Nature' }}</h1>
+<p class="hero-sub">{{ section.settings.sub | default: 'The best things in life draw you in without effort. JZZW pieces are crafted with that same pull — quality that speaks for itself.' }}</p>
+<div class="hero-actions"><a href="#collection" class="btn-mag-primary">{{ section.settings.cta | default: 'Shop Now' }}</a><a href="#quote" class="btn-mag-ghost">{{ section.settings.cta2 | default: 'Our Story' }}</a></div>
+</div>
+<div class="hero-right"><div class="hero-ring"><div class="hero-ring-inner">{{ section.settings.ring_text | default: 'JZZW<br>EST. 2024<br>NYC' }}</div></div></div>
+</section>
+<section class="products" id="collection">
+<div class="products-header"><p class="products-label">{{ section.settings.col_label | default: 'The Collection' }}</p><h2 class="products-title">{{ section.settings.col_title | default: 'SS 2026' }}</h2></div>
+<div class="products-grid">{% for block in section.blocks %}<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">{% if block.settings.badge %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}<span class="product-num">{{ forloop.index | string | pad_left: 2, '0' }}</span></div>
+<div class="product-info"><h3 class="product-name">{{ block.settings.name }}</h3><p class="product-detail">{{ block.settings.detail }}</p><p class="product-price">{{ block.settings.price }}</p></div>
+</div>{% endfor %}</div>
+</section>
+<section class="quote-section" id="quote"><p class="quote-label">{{ section.settings.q_label | default: 'Philosophy' }}</p><p class="quote-text">{{ section.settings.quote | default: '"The most powerful force in the universe is compound quality."' }}</p></section>
+<footer class="footer" id="footer"><div class="footer-inner"><div class="footer-brand">{{ section.settings.brand | default: 'JZZW' }}</div><p class="footer-text">© {{ 'now' | date: '%Y' }} — New York</p></div></footer>
+</div>
+{% schema %}{"name":"JZZW V6 Magnetic","tag":"section","class":"jzzw-section","settings":[
+{"type":"text","id":"brand","label":"Brand","default":"JZZW"},{"type":"text","id":"tag","label":"Hero Tag","default":"SS 2026 — New Collection"},{"type":"textarea","id":"title","label":"Hero Title","default":"Magnetic<br><em>by Nature"},{"type":"textarea","id":"sub","label":"Hero Sub","default":"The best things in life draw you in without effort."},{"type":"text","id":"cta","label":"Primary CTA","default":"Shop Now"},{"type":"text","id":"cta2","label":"Secondary CTA","default":"Our Story"},{"type":"text","id":"ring_text","label":"Ring Text","default":"JZZW<br>EST. 2024<br>NYC"},{"type":"text","id":"col_label","label":"Collection Label","default":"The Collection"},{"type":"text","id":"col_title","label":"Collection Title","default":"SS 2026"},{"type":"text","id":"q_label","label":"Quote Label","default":"Philosophy"},{"type":"textarea","id":"quote","label":"Quote Text","default":"\"The most powerful force in the universe is compound quality.\""},
+{"type":"text","id":"n1","label":"Nav 1","default":"Collection"},{"type":"text","id":"n2","label":"Nav 2","default":"Philosophy"},{"type":"text","id":"n3","label":"Nav 3","default":"Contact"}
+],"blocks":[{"type":"p","name":"Product","limit":6,"settings":[
+{"type":"text","id":"name","label":"Name","default":"Obsidian Bomber"},{"type":"text","id":"price","label":"Price","default":"$320"},{"type":"text","id":"detail","label":"Detail","default":"Japanese Nylon"},{"type":"text","id":"badge","label":"Badge","default":""}
+]}],"presets":[{"name":"JZZW V6 Magnetic","blocks":[
+{"type":"p","settings":{"name":"Obsidian Bomber","price":"$320","detail":"Japanese Nylon","badge":"Pre-Order"}},
+{"type":"p","settings":{"name":"Gold Seam Hoodie","price":"$185","detail":"400gsm Cotton","badge":""}},
+{"type":"p","settings":{"name":"Archive Trench","price":"$450","detail":"Italian Wool","badge":""}},
+{"type":"p","settings":{"name":"Signature Tee","price":"$95","detail":"Supima Cotton","badge":"New"}},
+{"type":"p","settings":{"name":"Shadow Cargo","price":"$240","detail":"Cotton Twill","badge":""}},
+{"type":"p","settings":{"name":"Midnight Denim","price":"$280","detail":"Selvedge","badge":""}}
+]}]}{% endschema %}
