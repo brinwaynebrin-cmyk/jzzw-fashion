@@ -1,0 +1,105 @@
+﻿{%- comment -%} JZZW V5 Digital - Shopify Section (Cyberpunk/Future) {%- endcomment -%}
+<style>
+.jzzw-v5-digital *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v5-digital{font-family:'Oxanium',sans-serif;background:#050510;color:#e0e8ff;min-height:100vh;overflow-x:hidden}
+.jzzw-v5-digital ::selection{background:#00d4ff;color:#050510}
+.jzzw-v5-digital .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:rgba(5,5,16,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,255,.1)}
+.jzzw-v5-digital .nav-brand{font-size:1.2rem;font-weight:700;letter-spacing:.3em;color:#00d4ff;text-shadow:0 0 20px rgba(0,212,255,.5);text-decoration:none}
+.jzzw-v5-digital .nav-links{display:flex;gap:2.5rem}
+.jzzw-v5-digital .nav-links a{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:rgba(224,232,255,.4);transition:all .3s}
+.jzzw-v5-digital .nav-links a:hover,.jzzw-v5-digital .nav-links a.active{color:#00d4ff;text-shadow:0 0 10px rgba(0,212,255,.5)}
+.jzzw-v5-digital .hero{min-height:100vh;display:grid;grid-template-columns:50% 50%;position:relative}
+.jzzw-v5-digital .hero-left{background:linear-gradient(135deg,#050510 0%,#0a0a20 100%);display:flex;flex-direction:column;justify-content:center;padding:4rem;position:relative;overflow:hidden}
+.jzzw-v5-digital .hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(0,212,255,.08) 0%,transparent 50%)}
+.jzzw-v5-digital .hero-left::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.02) 2px,rgba(0,212,255,.02) 4px)}
+.jzzw-v5-digital .hero-tag{font-size:.65rem;letter-spacing:.5em;color:#00d4ff;margin-bottom:2rem;display:flex;align-items:center;gap:.5rem}
+.jzzw-v5-digital .hero-tag::before{content:'▶';font-size:.5rem}
+.jzzw-v5-digital .hero-title{font-size:clamp(3rem,8vw,6rem);font-weight:800;letter-spacing:-.02em;line-height:.9;margin-bottom:1.5rem;position:relative}
+.jzzw-v5-digital .hero-title .cyan{color:#00d4ff;text-shadow:0 0 30px rgba(0,212,255,.4)}
+.jzzw-v5-digital .hero-title .white{color:#fff}
+.jzzw-v5-digital .hero-sub{font-family:'Rajdhani',sans-serif;font-size:.9rem;line-height:1.9;color:rgba(224,232,255,.45);max-width:380px;margin-bottom:2.5rem;font-weight:400}
+.jzzw-v5-digital .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.jzzw-v5-digital .btn-cyber{padding:.8rem 2rem;background:linear-gradient(90deg,#00d4ff,#0099cc);color:#050510;text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid #00d4ff;transition:all .3s;position:relative;overflow:hidden}
+.jzzw-v5-digital .btn-cyber::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.jzzw-v5-digital .btn-cyber:hover::before{left:100%}
+.jzzw-v5-digital .btn-cyber:hover{box-shadow:0 0 30px rgba(0,212,255,.4);transform:translateY(-2px)}
+.jzzw-v5-digital .btn-cyber-ghost{padding:.8rem 2rem;background:transparent;color:#00d4ff;text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(0,212,255,.3);transition:all .3s}
+.jzzw-v5-digital .btn-cyber-ghost:hover{border-color:#00d4ff;box-shadow:0 0 15px rgba(0,212,255,.2)}
+.jzzw-v5-digital .hero-right{background:linear-gradient(135deg,#00d4ff 0%,#0066aa 50%,#003366 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.jzzw-v5-digital .hero-right::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(0,0,0,.1) 4px,rgba(0,0,0,.1) 8px)}
+.jzzw-v5-digital .hero-emblem{font-size:clamp(6rem,15vw,12rem);font-weight:800;color:rgba(255,255,255,.1);position:relative;z-index:1;text-align:center;line-height:1;letter-spacing:-.05em}
+.jzzw-v5-digital .hero-emblem-sub{font-size:.8rem;letter-spacing:.5em;color:rgba(255,255,255,.5);position:relative;z-index:1;text-align:center;margin-top:1rem}
+.jzzw-v5-digital .strip{background:#00d4ff;padding:1rem 0;overflow:hidden}
+.jzzw-v5-digital .strip-inner{display:inline-flex;animation:marquee 15s linear infinite}
+.jzzw-v5-digital .strip-item{font-family:'Rajdhani',sans-serif;font-size:.75rem;letter-spacing:.3em;font-weight:700;color:#050510;padding:0 2rem}
+.jzzw-v5-digital .strip-item::after{content:'▶';margin-left:2rem;opacity:.5}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.jzzw-v5-digital .products{padding:6rem 3rem}
+.jzzw-v5-digital .products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid rgba(0,212,255,.1)}
+.jzzw-v5-digital .products-label{font-size:.6rem;letter-spacing:.4em;color:#00d4ff;margin-bottom:.5rem}
+.jzzw-v5-digital .products-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:700}
+.jzzw-v5-digital .products-count{font-family:'Rajdhani',sans-serif;font-size:.75rem;color:rgba(0,212,255,.5)}
+.jzzw-v5-digital .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.jzzw-v5-digital .product-card{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);transition:all .4s;position:relative}
+.jzzw-v5-digital .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00d4ff,transparent);transform:scaleX(0);transition:transform .4s}
+.jzzw-v5-digital .product-card:hover{border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.05)}
+.jzzw-v5-digital .product-card:hover::before{transform:scaleX(1)}
+.jzzw-v5-digital .product-img{aspect-ratio:1;background:linear-gradient(135deg,#0a0a20 0%,#0f0f30 100%);position:relative}
+.jzzw-v5-digital .product-img::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,212,255,.03) 3px,rgba(0,212,255,.03) 4px)}
+.jzzw-v5-digital .product-num{position:absolute;top:.8rem;left:.8rem;font-size:.55rem;color:rgba(0,212,255,.4);letter-spacing:.1em}
+.jzzw-v5-digital .product-badge{position:absolute;top:.8rem;right:.8rem;background:#00d4ff;color:#050510;font-size:.5rem;font-weight:700;letter-spacing:.1em;padding:.2rem .5rem}
+.jzzw-v5-digital .product-info{padding:1.2rem}
+.jzzw-v5-digital .product-name{font-size:.9rem;font-weight:600;margin-bottom:.3rem;letter-spacing:.02em}
+.jzzw-v5-digital .product-detail{font-family:'Rajdhani',sans-serif;font-size:.7rem;color:rgba(224,232,255,.35);margin-bottom:.5rem}
+.jzzw-v5-digital .product-price{font-size:1.1rem;font-weight:700;color:#00d4ff}
+.jzzw-v5-digital .manifesto{padding:6rem 3rem;background:linear-gradient(180deg,rgba(0,212,255,.03) 0%,transparent 100%);border-top:1px solid rgba(0,212,255,.1);text-align:center}
+.jzzw-v5-digital .manifesto-label{font-size:.6rem;letter-spacing:.5em;color:#00d4ff;margin-bottom:2rem}
+.jzzw-v5-digital .manifesto-text{font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:600;line-height:1.5;max-width:700px;margin:0 auto}
+.jzzw-v5-digital .manifesto-text .cyan{color:#00d4ff;text-shadow:0 0 20px rgba(0,212,255,.3)}
+.jzzw-v5-digital .footer{background:#020208;padding:3rem;border-top:1px solid rgba(0,212,255,.1)}
+.jzzw-v5-digital .footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v5-digital .footer-brand{font-size:1.3rem;font-weight:700;letter-spacing:.3em;color:#00d4ff;text-shadow:0 0 15px rgba(0,212,255,.3)}
+.jzzw-v5-digital .footer-text{font-family:'Rajdhani',sans-serif;font-size:.75rem;color:rgba(224,232,255,.25)}
+@media(max-width:900px){.jzzw-v5-digital .hero{grid-template-columns:1fr}.jzzw-v5-digital .hero-right{min-height:50vh}.jzzw-v5-digital .products-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.jzzw-v5-digital .products-grid{grid-template-columns:1fr}.jzzw-v5-digital .nav-links{display:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<div class="jzzw-v5-digital">
+<nav class="nav"><a href="/" class="nav-brand">{{ section.settings.brand | default: 'JZZW' }}</a><div class="nav-links"><a href="#collection">{{ section.settings.nav1 | default: 'Collection' }}</a><a href="#about">{{ section.settings.nav2 | default: 'About' }}</a><a href="#contact">{{ section.settings.nav3 | default: 'Contact' }}</a></div></nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">{{ section.settings.tag | default: 'SYSTEM.INIT // SS 2026' }}</p>
+<h1 class="hero-title">{{ section.settings.title | default: '<span class="cyan">DIGITAL</span><br><span class="white">NATIVE</span>' }}</h1>
+<p class="hero-sub">{{ section.settings.sub | default: 'The future of streetwear is code. Every piece engineered with the precision of software, the attitude of hardware.' }}</p>
+<div class="hero-cta"><a href="#collection" class="btn-cyber">{{ section.settings.cta | default: 'Initialize Shop' }}</a><a href="#about" class="btn-cyber-ghost">{{ section.settings.cta2 | default: 'View Specs' }}</a></div>
+</div>
+<div class="hero-right"><div class="hero-emblem">{{ section.settings.emblem | default: 'JZZW' }}</div><div class="hero-emblem-sub">{{ section.settings.emblem_sub | default: 'EST. 2024 // SYSTEM ONLINE' }}</div></div>
+</section>
+<div class="strip"><div class="strip-inner">
+<span class="strip-item">SS 2026 COLLECTION</span><span class="strip-item">SYSTEM LOADING</span><span class="strip-item">QUANTUM FABRIC</span><span class="strip-item">INIT COMPLETE</span>
+<span class="strip-item">SS 2026 COLLECTION</span><span class="strip-item">SYSTEM LOADING</span><span class="strip-item">QUANTUM FABRIC</span><span class="strip-item">INIT COMPLETE</span>
+</div></div>
+<section class="products" id="collection">
+<div class="products-header"><div><p class="products-label">{{ section.settings.col_label | default: 'CATALOG // LOADING' }}</p><h2 class="products-title">{{ section.settings.col_title | default: 'SS 2026' }}</h2></div><p class="products-count">{{ section.settings.col_count | default: '06 UNITS' }}</p></div>
+<div class="products-grid">{% for block in section.blocks %}<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">{% if block.settings.badge %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}<span class="product-num">{{ forloop.index | string | pad_left: 2, '0' }}</span></div>
+<div class="product-info"><h3 class="product-name">{{ block.settings.name }}</h3><p class="product-detail">{{ block.settings.detail }}</p><p class="product-price">{{ block.settings.price }}</p></div>
+</div>{% endfor %}</div>
+</section>
+<section class="manifesto" id="about"><p class="manifesto-label">{{ section.settings.mf_label | default: 'MANIFESTO.EXE' }}</p><p class="manifesto-text">{{ section.settings.mf | default: 'We are <span class="cyan">not</span> a brand. We are a <span class="cyan">protocol</span>.' }}</p></section>
+<footer class="footer" id="contact"><div class="footer-inner"><div class="footer-brand">{{ section.settings.brand | default: 'JZZW' }}</div><p class="footer-text">© {{ 'now' | date: '%Y' }} — SYSTEM VERSION 2.0</p></div></footer>
+</div>
+{% schema %}{"name":"JZZW V5 Digital","tag":"section","class":"jzzw-section","settings":[
+{"type":"text","id":"brand","label":"Brand","default":"JZZW"},{"type":"text","id":"tag","label":"Hero Tag","default":"SYSTEM.INIT // SS 2026"},{"type":"textarea","id":"title","label":"Hero Title","default":"<span class=\"cyan\">DIGITAL</span><br><span class=\"white\">NATIVE</span>"},{"type":"textarea","id":"sub","label":"Hero Sub","default":"The future of streetwear is code."},{"type":"text","id":"cta","label":"Primary CTA","default":"Initialize Shop"},{"type":"text","id":"cta2","label":"Secondary CTA","default":"View Specs"},{"type":"text","id":"emblem","label":"Emblem Text","default":"JZZW"},{"type":"text","id":"emblem_sub","label":"Emblem Sub","default":"EST. 2024 // SYSTEM ONLINE"},{"type":"text","id":"col_label","label":"Collection Label","default":"CATALOG // LOADING"},{"type":"text","id":"col_title","label":"Collection Title","default":"SS 2026"},{"type":"text","id":"col_count","label":"Count","default":"06 UNITS"},{"type":"text","id":"mf_label","label":"Manifesto Label","default":"MANIFESTO.EXE"},{"type":"textarea","id":"mf","label":"Manifesto","default":"We are <span class=\"cyan\">not</span> a brand. We are a <span class=\"cyan\">protocol</span>."},
+{"type":"text","id":"nav1","label":"Nav 1","default":"Collection"},{"type":"text","id":"nav2","label":"Nav 2","default":"About"},{"type":"text","id":"nav3","label":"Nav 3","default":"Contact"}
+],"blocks":[{"type":"p","name":"Product","limit":6,"settings":[
+{"type":"text","id":"name","label":"Name","default":"Obsidian Bomber"},{"type":"text","id":"price","label":"Price","default":"$320"},{"type":"text","id":"detail","label":"Detail","default":"Quantum Nylon"},{"type":"text","id":"badge","label":"Badge","default":"PRE-ORDER"}
+]}],"presets":[{"name":"JZZW V5 Digital","blocks":[
+{"type":"p","settings":{"name":"Obsidian Bomber","price":"$320","detail":"Quantum Nylon","badge":"PRE-ORDER"}},
+{"type":"p","settings":{"name":"Gold Seam Hoodie","price":"$185","detail":"400gsm Cotton","badge":""}},
+{"type":"p","settings":{"name":"Archive Trench","price":"$450","detail":"Italian Wool","badge":""}},
+{"type":"p","settings":{"name":"Signature Tee","price":"$95","detail":"Supima Cotton","badge":"NEW"}},
+{"type":"p","settings":{"name":"Shadow Cargo","price":"$240","detail":"Cotton Twill","badge":""}},
+{"type":"p","settings":{"name":"Midnight Denim","price":"$280","detail":"Selvedge","badge":""}}
+]}]}{% endschema %}
