@@ -1,0 +1,225 @@
+﻿{% comment %} JZZW V8 Noir Atelier — Shopify Section (Acne Studios / The Row) {% endcomment %}
+<style>
+.jzzw-v8{--bg:#141414;--fg:#f0ebe0;--muted:rgba(240,235,224,.35);--muted2:rgba(240,235,224,.15);--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',sans-serif}
+.jzzw-v8 *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v8{font-family:var(--sans);background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;line-height:1.65}
+.jzzw-v8 ::selection{background:var(--fg);color:var(--bg)}
+.jzzw-v8 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.8rem 4rem;border-bottom:1px solid rgba(240,235,224,.06);background:rgba(20,20,20,.95);backdrop-filter:blur(20px)}
+.jzzw-v8 .nav-links{display:flex;gap:2.5rem;justify-content:center}
+.jzzw-v8 .nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--fg);opacity:.3;transition:opacity .3s}
+.jzzw-v8 .nav-links a:hover{opacity:.8}
+.jzzw-v8 .nav-spacer{display:flex;justify-content:flex-end}
+.jzzw-v8 .nav-cta a{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--fg);border:1px solid rgba(240,235,224,.12);padding:.6rem 1.4rem;transition:all .3s}
+.jzzw-v8 .nav-cta a:hover{border-color:var(--fg);opacity:.8}
+.jzzw-v8 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.jzzw-v8 .hero-left{padding:7rem 4rem 5rem 5rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.jzzw-v8 .hero-left::after{content:'';position:absolute;top:0;right:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(240,235,224,.08),transparent)}
+.jzzw-v8 .hero-tag{font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;letter-spacing:.4em}
+.jzzw-v8 .hero-title{font-family:var(--serif);font-size:clamp(3rem,8vw,6.5rem);font-weight:400;line-height:1.05;letter-spacing:-.01em;margin-bottom:1.5rem}
+.jzzw-v8 .hero-title em{font-style:italic;color:rgba(240,235,224,.7)}
+.jzzw-v8 .hero-body{font-size:.88rem;font-weight:300;line-height:2;color:var(--muted);max-width:360px;margin-bottom:2.5rem}
+.jzzw-v8 .hero-actions{display:flex;gap:.8rem;align-items:center}
+.jzzw-v8 .btn-noir{padding:1rem 2.5rem;background:var(--fg);color:var(--bg);text-decoration:none;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .3s}
+.jzzw-v8 .btn-noir:hover{background:rgba(240,235,224,.8)}
+.jzzw-v8 .btn-noir-ghost{padding:1rem 2rem;background:transparent;color:var(--fg);text-decoration:none;font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(240,235,224,.1);transition:all .3s}
+.jzzw-v8 .btn-noir-ghost:hover{border-color:rgba(240,235,224,.3)}
+.jzzw-v8 .hero-right{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.jzzw-v8 .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(150deg,#1e1e1e 0%,#252522 50%,#2a2520 100%)}
+.jzzw-v8 .hero-right::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(240,235,224,.015) 2px,rgba(240,235,224,.015) 4px)}
+.jzzw-v8 .hero-emblem{position:relative;z-index:1;text-align:center}
+.jzzw-v8 .hero-emblem-mark{width:180px;height:180px;border:1px solid rgba(240,235,224,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem}
+.jzzw-v8 .hero-emblem-mark::before{content:'';width:150px;height:150px;border:1px solid rgba(240,235,224,.06);border-radius:50%}
+.jzzw-v8 .hero-emblem-inner{font-family:var(--serif);font-style:italic;font-size:.55rem;letter-spacing:.4em;color:rgba(240,235,224,.4);line-height:2.5;text-align:center}
+.jzzw-v8 .hero-emblem-est{font-size:.6rem;letter-spacing:.4em;color:rgba(240,235,224,.2);text-transform:uppercase}
+.jzzw-v8 .strip{background:var(--fg);padding:1.2rem 0;overflow:hidden}
+.jzzw-v8 .strip-inner{display:inline-flex;animation:marquee 20s linear infinite}
+.jzzw-v8 .strip-item{font-size:.65rem;letter-spacing:.35em;font-weight:500;color:var(--bg);padding:0 2.5rem;text-transform:uppercase}
+.jzzw-v8 .strip-item::after{content:'·';margin-left:2.5rem;opacity:.4}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.jzzw-v8 .atelier{padding:10rem 5rem;display:grid;grid-template-columns:40% 60%;gap:8rem;align-items:center;max-width:1300px;margin:0 auto}
+.jzzw-v8 .atelier-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.jzzw-v8 .atelier-heading{font-family:var(--serif);font-size:clamp(2rem,4.5vw,4rem);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+.jzzw-v8 .atelier-heading em{font-style:italic}
+.jzzw-v8 .atelier-body{font-size:.88rem;font-weight:300;line-height:2.1;color:var(--muted);margin-top:2rem}
+.jzzw-v8 .atelier-quote{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(240,235,224,.25);margin-top:3rem;padding-left:1.5rem;border-left:1px solid rgba(240,235,224,.1)}
+.jzzw-v8 .products{padding:8rem 5rem;background:rgba(240,235,224,.015)}
+.jzzw-v8 .products-header{margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid rgba(240,235,224,.06)}
+.jzzw-v8 .products-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.jzzw-v8 .products-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400}
+.jzzw-v8 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.jzzw-v8 .product-card{background:rgba(255,255,255,.025);border:1px solid rgba(240,235,224,.05);transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.jzzw-v8 .product-card:hover{border-color:rgba(240,235,224,.15);background:rgba(240,235,224,.035);transform:translateY(-5px)}
+.jzzw-v8 .product-img{aspect-ratio:3/4;background:linear-gradient(145deg,#1e1e1e 0%,#1a1a1a 100%);position:relative}
+.jzzw-v8 .product-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(240,235,224,.04) 0%,transparent 55%)}
+.jzzw-v8 .product-num{position:absolute;top:1rem;left:1rem;font-size:.58rem;color:rgba(240,235,224,.12);letter-spacing:.1em}
+.jzzw-v8 .product-badge{position:absolute;top:1rem;right:1rem;background:var(--fg);color:var(--bg);font-size:.5rem;font-weight:700;letter-spacing:.1em;padding:.25rem .6rem}
+.jzzw-v8 .product-info{padding:1.5rem 1.8rem}
+.jzzw-v8 .product-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.3rem}
+.jzzw-v8 .product-detail{font-size:.72rem;color:rgba(240,235,224,.28);margin-bottom:.7rem;letter-spacing:.02em}
+.jzzw-v8 .product-price{font-size:1rem;font-weight:500;color:rgba(240,235,224,.6)}
+.jzzw-v8 .quote-section{padding:8rem 5rem;background:var(--bg);text-align:center;border-top:1px solid rgba(240,235,224,.05);border-bottom:1px solid rgba(240,235,224,.05)}
+.jzzw-v8 .quote-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem}
+.jzzw-v8 .quote-text{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3.5rem);font-weight:400;font-style:italic;line-height:1.6;max-width:700px;margin:0 auto;color:rgba(240,235,224,.6)}
+.jzzw-v8 .quote-text .light{color:var(--fg);font-style:normal}
+.jzzw-v8 .footer{background:#0d0d0d;padding:4rem 5rem;border-top:1px solid rgba(240,235,224,.05)}
+.jzzw-v8 .footer-inner{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v8 .footer-brand{font-family:var(--serif);font-size:1.1rem;font-style:italic;letter-spacing:.25em}
+.jzzw-v8 .footer-links{display:flex;gap:2.5rem}
+.jzzw-v8 .footer-links a{font-size:.7rem;color:rgba(240,235,224,.2);text-decoration:none;letter-spacing:.05em;transition:color .3s}
+.jzzw-v8 .footer-links a:hover{color:var(--fg)}
+.jzzw-v8 .footer-copy{font-size:.68rem;color:rgba(240,235,224,.1)}
+@media(max-width:1024px){.jzzw-v8 .atelier{grid-template-columns:1fr;gap:3rem;padding:6rem 3rem}.jzzw-v8 .products-grid{grid-template-columns:repeat(2,1fr)}.jzzw-v8 .nav{grid-template-columns:auto 1fr;gap:2rem;padding:1.2rem 2rem}.jzzw-v8 .nav-spacer{display:none}}
+@media(max-width:768px){.jzzw-v8 .hero{grid-template-columns:1fr}.jzzw-v8 .hero-right{min-height:50vh}.jzzw-v8 .products{padding:5rem 2rem}.jzzw-v8 .footer{flex-direction:column;gap:2rem;padding:3rem 2rem}.jzzw-v8 .footer-links{flex-wrap:wrap;gap:1.5rem}}
+@media(max-width:480px){.jzzw-v8 .products-grid{grid-template-columns:1fr}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<div class="jzzw-v8">
+<nav class="nav">
+<div class="nav-spacer"><div class="nav-cta"><a href="#collection">{{ section.settings.cta_nav | default: 'Shop Now' }}</a></div></div>
+<div class="nav-links">
+<a href="#collection">{{ section.settings.n1 | default: 'Collection' }}</a>
+<a href="#atelier">{{ section.settings.n2 | default: 'Atelier' }}</a>
+<a href="#footer">{{ section.settings.n3 | default: 'Contact' }}</a>
+</div>
+<div></div>
+</nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">{{ section.settings.tag | default: 'Spring Summer 2026 — Noir Collection' }}</p>
+<h1 class="hero-title">{{ section.settings.title | default: 'The Art of<br><em>Less</em>' }}</h1>
+<p class="hero-body">{{ section.settings.body | default: 'In a world of noise, restraint is the ultimate statement. Each piece in the Noir Atelier collection is an exercise in disciplined craft — where every detail earns its place.' }}</p>
+<div class="hero-actions">
+<a href="#collection" class="btn-noir">{{ section.settings.cta | default: 'Explore Collection' }}</a>
+<a href="#atelier" class="btn-noir-ghost">{{ section.settings.cta2 | default: 'About' }}</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-emblem">
+<div class="hero-emblem-mark"><div class="hero-emblem-inner">{{ section.settings.emblem | default: 'JZZW' }}</div></div>
+<span class="hero-emblem-est">{{ section.settings.est | default: 'Est. 2024 — New York' }}</span>
+</div>
+</div>
+</section>
+<div class="strip">
+<div class="strip-inner">
+<span class="strip-item">{{ section.settings.s1 | default: 'Noir Collection' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'New York' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'Atelier' }}</span>
+<span class="strip-item">{{ section.settings.s1 | default: 'Noir Collection' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'New York' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'Atelier' }}</span>
+</div>
+</div>
+<section class="atelier" id="atelier">
+<div>
+<p class="atelier-label">{{ section.settings.at_label | default: 'The Atelier' }}</p>
+<h2 class="atelier-heading">{{ section.settings.at_title | default: 'Crafted with <em>restraint</em>' }}</h2>
+</div>
+<div>
+<p class="atelier-body">{{ section.settings.at_body | default: 'The most sophisticated thing a garment can do is disappear — to feel like nothing, to let the wearer become the statement. We spend years perfecting the weight of a collar, the fall of a shoulder, the silence of a seam.' }}</p>
+<p class="atelier-quote">{{ section.settings.at_quote | default: '"The best design is almost invisible."' }}</p>
+</div>
+</section>
+<section class="products" id="collection">
+<div class="products-header">
+<div>
+<p class="products-label">{{ section.settings.col_label | default: 'The Collection' }}</p>
+<h2 class="products-title">{{ section.settings.col_title | default: 'Noir SS 2026' }}</h2>
+</div>
+</div>
+<div class="products-grid">
+{% for block in section.blocks %}
+<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">
+<span class="product-num">{{ forloop.index | string | pad_left: 2, '0' }}</span>
+{% if block.settings.badge %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}
+</div>
+<div class="product-info">
+<h3 class="product-name">{{ block.settings.name | default: 'Product' }}</h3>
+<p class="product-detail">{{ block.settings.detail | default: 'Premium Fabric' }}</p>
+<p class="product-price">{{ block.settings.price | default: '$185' }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="quote-section">
+<p class="quote-label">{{ section.settings.q_label | default: 'Philosophy' }}</p>
+<p class="quote-text">{{ section.settings.quote | default: '<span class="light">Less</span> is not absence. <span class="light">Less</span> is precision.' }}</p>
+</section>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div class="footer-brand">{{ section.settings.brand | default: 'JZZW' }}</div>
+<div class="footer-links">
+<a href="#">All Products</a>
+<a href="#">About</a>
+<a href="#">Stockists</a>
+<a href="#">Instagram</a>
+</div>
+<p class="footer-copy">© {{ 'now' | date: '%Y' }} — {{ section.settings.footer_loc | default: 'New York' }}</p>
+</div>
+</footer>
+</div>
+{% schema %}
+{
+  "name": "JZZW V8 Noir Atelier",
+  "tag": "section",
+  "class": "jzzw-section",
+  "settings": [
+    {"type": "text", "id": "brand", "label": "Brand", "default": "JZZW"},
+    {"type": "text", "id": "tag", "label": "Season Tag", "default": "Spring Summer 2026 — Noir Collection"},
+    {"type": "textarea", "id": "title", "label": "Hero Title", "default": "The Art of<br><em>Less</em>"},
+    {"type": "textarea", "id": "body", "label": "Hero Body", "default": "In a world of noise, restraint is the ultimate statement."},
+    {"type": "text", "id": "cta", "label": "Primary CTA", "default": "Explore Collection"},
+    {"type": "text", "id": "cta2", "label": "Secondary CTA", "default": "About"},
+    {"type": "text", "id": "cta_nav", "label": "Nav CTA", "default": "Shop Now"},
+    {"type": "textarea", "id": "emblem", "label": "Emblem Text", "default": "JZZW"},
+    {"type": "text", "id": "est", "label": "Est Text", "default": "Est. 2024 — New York"},
+    {"type": "text", "id": "s1", "label": "Strip 1", "default": "Noir Collection"},
+    {"type": "text", "id": "s2", "label": "Strip 2", "default": "New York"},
+    {"type": "text", "id": "s3", "label": "Strip 3", "default": "SS 2026"},
+    {"type": "text", "id": "s4", "label": "Strip 4", "default": "Atelier"},
+    {"type": "text", "id": "n1", "label": "Nav 1", "default": "Collection"},
+    {"type": "text", "id": "n2", "label": "Nav 2", "default": "Atelier"},
+    {"type": "text", "id": "n3", "label": "Nav 3", "default": "Contact"},
+    {"type": "text", "id": "at_label", "label": "Atelier Label", "default": "The Atelier"},
+    {"type": "textarea", "id": "at_title", "label": "Atelier Heading", "default": "Crafted with <em>restraint</em>"},
+    {"type": "textarea", "id": "at_body", "label": "Atelier Body", "default": "The most sophisticated thing a garment can do is disappear."},
+    {"type": "text", "id": "at_quote", "label": "Atelier Quote", "default": "\"The best design is almost invisible.\""},
+    {"type": "text", "id": "col_label", "label": "Collection Label", "default": "The Collection"},
+    {"type": "text", "id": "col_title", "label": "Collection Title", "default": "Noir SS 2026"},
+    {"type": "text", "id": "q_label", "label": "Quote Label", "default": "Philosophy"},
+    {"type": "textarea", "id": "quote", "label": "Quote", "default": "<span class=\"light\">Less</span> is not absence. <span class=\"light\">Less</span> is precision."},
+    {"type": "text", "id": "footer_loc", "label": "Footer Location", "default": "New York"}
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "limit": 6,
+      "settings": [
+        {"type": "text", "id": "name", "label": "Name", "default": "Noir Bomber"},
+        {"type": "text", "id": "price", "label": "Price", "default": "$395"},
+        {"type": "text", "id": "detail", "label": "Detail", "default": "Japanese Wool, Hand-finished"},
+        {"type": "text", "id": "badge", "label": "Badge", "default": "Pre-Order"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JZZW V8 Noir Atelier",
+      "blocks": [
+        {"type": "product", "settings": {"name": "Noir Bomber", "price": "$395", "detail": "Japanese Wool, Hand-finished", "badge": "Pre-Order"}},
+        {"type": "product", "settings": {"name": "Ivory Seam Hoodie", "price": "$195", "detail": "400gsm Cotton", "badge": ""}},
+        {"type": "product", "settings": {"name": "Archive Coat", "price": "$545", "detail": "Italian Cashmere", "badge": ""}},
+        {"type": "product", "settings": {"name": "Atelier Tee", "price": "$115", "detail": "Supima Cotton", "badge": "New"}},
+        {"type": "product", "settings": {"name": "Shadow Trouser", "price": "$285", "detail": "Wool Twill", "badge": ""}},
+        {"type": "product", "settings": {"name": "Selvedge Noir", "price": "$340", "detail": "Selvedge Denim", "badge": ""}}
+      ]
+    }
+  ]
+}
+{% endschema %}
