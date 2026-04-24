@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JZZW — Fashion for the Wild at Heart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #faf9f7;
+            --cream-dark: #f0eeeb;
+            --charcoal: #1a1a1a;
+            --charcoal-light: #2d2d2d;
+            --warm-gray: #8a8680;
+            --light-gray: #d4d0c8;
+            --accent: #c4a77d;
+            --accent-dark: #a68b5b;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.015;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.75rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 249, 247, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 208, 200, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled { padding: 1.25rem 4rem; background: rgba(250, 249, 247, 0.95); }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            color: var(--charcoal);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 3.5rem;
+            list-style: none;
+        }
+
+        .nav-center a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-center a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav-center a:hover::after { width: 100%; }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .search-btn, .cart-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            transition: color 0.3s ease;
+        }
+
+        .search-btn:hover, .cart-btn:hover { color: var(--accent-dark); }
+
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-count {
+            width: 20px; height: 20px;
+            background: var(--charcoal);
+            color: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 6rem 6rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-dark);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            max-width: 420px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 1.1rem 2.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            background: var(--charcoal-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 26, 26, 0.15);
+        }
+
+        .btn-text {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .btn-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 1px;
+            background: var(--charcoal);
+            transform: scaleX(1);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .btn-text:hover::after {
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        .hero-visual {
+            position: relative;
+            background: linear-gradient(135deg, var(--cream-dark) 0%, var(--light-gray) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image-container {
+            width: 80%;
+            height: 70%;
+            background: var(--charcoal);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .hero-accent {
+            position: absolute;
+            bottom: 4rem;
+            right: 4rem;
+            text-align: right;
+        }
+
+        .hero-accent-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--warm-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-accent-line {
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            margin-left: auto;
+        }
+
+        .featured {
+            padding: 8rem 4rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .section-title-group h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title-group p {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+        }
+
+        .view-all {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .view-all:hover { color: var(--accent-dark); }
+        .view-all::after { content: '→'; transition: transform 0.3s ease; }
+        .view-all:hover::after { transform: translateX(4px); }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-image {
+            aspect-ratio: 3/4;
+            background: var(--cream-dark);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(26,26,26,0.4));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover .product-image::before { opacity: 1; }
+
+        .product-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            background: var(--cream);
+            color: var(--charcoal);
+            padding: 0.4rem 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .product-quick-add {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--cream);
+            color: var(--charcoal);
+            padding: 0.9rem 2rem;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 2;
+        }
+
+        .product-card:hover .product-quick-add {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .product-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            font-weight: 400;
+        }
+
+        .product-availability {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+        }
+
+        .editorial {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 90vh;
+        }
+
+        .editorial-image {
+            background: var(--charcoal);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .editorial-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(196, 167, 125, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(196, 167, 125, 0.05) 0%, transparent 50%);
+        }
+
+        .editorial-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        .editorial-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem;
+            background: var(--cream);
+        }
+
+        .editorial-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 2rem;
+        }
+
+        .editorial-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .editorial-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-dark);
+        }
+
+        .editorial-text {
+            font-size: 1rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+        }
+
+        .editorial-stats {
+            display: flex;
+            gap: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .stat-item h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+
+        .lookbook {
+            padding: 8rem 4rem;
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .lookbook-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .lookbook-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .lookbook-header p {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(2, 400px);
+            gap: 1.5rem;
+        }
+
+        .lookbook-item {
+            background: var(--charcoal-light);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .lookbook-item:hover { transform: scale(0.98); }
+        .lookbook-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+        .lookbook-item:nth-child(2) { grid-column: span 4; }
+        .lookbook-item:nth-child(3) { grid-column: span 3; }
+        .lookbook-item:nth-child(4) { grid-column: span 3; }
+        .lookbook-item:nth-child(5) { grid-column: span 4; }
+
+        .lookbook-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .journal {
+            padding: 8rem 4rem;
+            background: var(--cream);
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .journal-card { cursor: pointer; }
+
+        .journal-image {
+            aspect-ratio: 4/3;
+            background: var(--cream-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .journal-card:hover .journal-image { transform: scale(1.02); }
+
+        .journal-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--light-gray);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .journal-meta {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .journal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .journal-card:hover .journal-title { color: var(--accent-dark); }
+
+        .journal-excerpt {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .newsletter {
+            padding: 6rem 4rem;
+            background: var(--cream-dark);
+            text-align: center;
+        }
+
+        .newsletter-content { max-width: 600px; margin: 0 auto; }
+
+        .newsletter h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            padding: 1rem 1.5rem;
+            color: var(--charcoal);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-input:focus { border-color: var(--accent); }
+        .newsletter-input::placeholder { color: var(--warm-gray); }
+
+        .footer {
+            padding: 5rem 4rem 2rem;
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-tagline {
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 280px;
+        }
+
+        .footer-title {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.9rem; }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--charcoal-light);
+        }
+
+        .footer-copy { color: var(--warm-gray); font-size: 0.75rem; }
+
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-social a {
+            color: var(--warm-gray);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover { color: var(--cream); }
+
+        @media (max-width: 1200px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .lookbook-grid {
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: repeat(3, 300px);
+            }
+            .lookbook-item:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+            .lookbook-item:nth-child(2) { grid-column: span 3; }
+            .lookbook-item:nth-child(3) { grid-column: span 2; }
+            .lookbook-item:nth-child(4) { grid-column: span 2; }
+            .lookbook-item:nth-child(5) { grid-column: span 2; }
+        }
+
+        @media (max-width: 900px) {
+            .nav { padding: 1.25rem 2rem; }
+            .nav-center { display: none; }
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 7rem 2rem 4rem; order: 2; }
+            .hero-visual { min-height: 50vh; order: 1; }
+            .editorial { grid-template-columns: 1fr; }
+            .editorial-content { padding: 4rem 2rem; }
+            .journal-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .lookbook-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 300px);
+            }
+            .lookbook-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+            .editorial-stats { flex-direction: column; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .newsletter-form { flex-direction: column; }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <a href="#" class="logo">JZZW</a>
+        <ul class="nav-center">
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#editorial">Editorial</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#journal">Journal</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="search-btn">Search</button>
+            <button class="cart-btn">
+                Cart
+                <span class="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-label">Spring / Summer 2026</p>
+            <h1 class="hero-title">
+                Fashion for<br>the <em>wild</em><br>at heart
+            </h1>
+            <p class="hero-desc">
+                Limited drops of meticulously crafted pieces. 
+                Each collection tells a story of rebellion, elegance, and uncompromising quality.
+            </p>
+            <div class="hero-cta">
+                <a href="#collection" class="btn-primary">Explore Collection</a>
+                <a href="#lookbook" class="btn-text">View Lookbook</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <span class="hero-image-placeholder">Hero Image</span>
+            </div>
+            <div class="hero-accent">
+                <p class="hero-accent-text">Est. 2024</p>
+                <div class="hero-accent-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured" id="collection">
+        <div class="section-header">
+            <div class="section-title-group">
+                <h2>Pre-Order Collection</h2>
+                <p>Limited quantities. Made to order. Ships in 3-4 weeks.</p>
+            </div>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        <div class="product-grid">
+            <div class="product-card fade-up">
+                <div class="product-image">
+                    <span class="product-badge">New</span>
+                    <span class="product-placeholder">SS01</span>
+                    <button class="product-quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h3>Summer Project Retro Tee</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$85.00</span>
+                        <span class="product-availability">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-image">
+                    <span class="product-badge">Limited</span>
+                    <span class="product-placeholder">SS02</span>
+                    <button class="product-quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h3>Midnight Run Hoodie</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$145.00</span>
+                        <span class="product-availability">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-image">
+                    <span class="product-placeholder">SS03</span>
+                    <button class="product-quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h3>Street Archive Jacket</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$220.00</span>
+                        <span class="product-availability">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card fade-up">
+                <div class="product-image">
+                    <span class="product-badge">Best Seller</span>
+                    <span class="product-placeholder">SS04</span>
+                    <button class="product-quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h3>Concrete Cargo Pants</h3>
+                    <div class="product-meta">
+                        <span class="product-price">$165.00</span>
+                        <span class="product-availability">Pre-Order</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial" id="editorial">
+        <div class="editorial-image">
+            <span class="editorial-placeholder">Campaign Image</span>
+        </div>
+        <div class="editorial-content">
+            <p class="editorial-label">Our Philosophy</p>
+            <h2 class="editorial-title">
+                We don't follow trends.<br>We <em>create</em> them.
+            </h2>
+            <p class="editorial-text">
+                Every piece is designed for those who live unapologetically. 
+                We believe in the power of limited quantities, premium materials, 
+                and designs that transcend seasons. This isn't fast fashion. 
+                This is your uniform for the extraordinary.
+            </p>
+            <div class="editorial-stats">
+                <div class="stat-item">
+                    <h4>48</h4>
+                    <p>Hour Drops</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Made to Order</p>
+                </div>
+                <div class="stat-item">
+                    <h4>3-4</h4>
+                    <p>Weeks Delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lookbook" id="lookbook">
+        <div class="lookbook-header">
+            <h2>The Lookbook</h2>
+            <p>Visual stories from our latest campaign</p>
+        </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item">
+                <span class="lookbook-placeholder">Look 01</span>
+            </div>
+            <div class="lookbook-item">
+                <span class="lookbook-placeholder">Look 02</span>
+            </div>
+            <div class="lookbook-item">
+                <span class="lookbook-placeholder">Look 03</span>
+            </div>
+            <div class="lookbook-item">
+                <span class="lookbook-placeholder">Look 04</span>
+            </div>
+            <div class="lookbook-item">
+                <span class="lookbook-placeholder">Look 05</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="journal" id="journal">
+        <div class="section-header">
+            <div class="section-title-group">
+                <h2>From the Journal</h2>
+                <p>Stories, interviews, and behind-the-scenes</p>
+            </div>
+            <a href="#" class="view-all">All Articles</a>
+        </div>
+        <div class="journal-grid">
+            <article class="journal-card fade-up">
+                <div class="journal-image">
+                    <span class="journal-placeholder">Article 01</span>
+                </div>
+                <p class="journal-meta">Design / March 2026</p>
+                <h3 class="journal-title">The Art of Limited Production</h3>
+                <p class="journal-excerpt">
+                    Why we choose quality over quantity, and how our made-to-order model 
+                    is reshaping the future of streetwear.
+                </p>
+            </article>
+            <article class="journal-card fade-up">
+                <div class="journal-image">
+                    <span class="journal-placeholder">Article 02</span>
+                </div>
+                <p class="journal-meta">Culture / February 2026</p>
+                <h3 class="journal-title">Wild at Heart: Meet the Creatives</h3>
+                <p class="journal-excerpt">
+                    A conversation with the artists, musicians, and rebels who inspire 
+                    our latest collection.
+                </p>
+            </article>
+            <article class="journal-card fade-up">
+                <div class="journal-image">
+                    <span class="journal-placeholder">Article 03</span>
+                </div>
+                <p class="journal-meta">Process / January 2026</p>
+                <h3 class="journal-title">From Sketch to Street</h3>
+                <p class="journal-excerpt">
+                    An inside look at our design process, from initial concept to 
+                    the final garment in your hands.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h3>Join the Inner Circle</h3>
+            <p>Early access to drops, exclusive content, and member-only releases.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address">
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">JZZW</a>
+                <p class="footer-tagline">
+                    Fashion for the wild at heart. 
+                    Build your capsule collection with pieces that tell your story.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Shop</h4>
+                <ul class="footer-links">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Pre-Order</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="#">Stockists</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 JZZW. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
