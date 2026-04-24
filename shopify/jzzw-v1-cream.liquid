@@ -1,0 +1,487 @@
+{%- comment -%}
+  JZZW V1 Cream Elegance - Shopify Section
+  Usage: Add this file to sections/ folder, then add section to any page
+{%- endcomment -%}
+
+<style>
+/* Scoped styles to avoid theme conflicts */
+.jzzw-v1-cream * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.jzzw-v1-cream {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #faf8f4 0%, #f5f0e8 50%, #ebe4d8 100%);
+  color: #1a1a1a;
+  min-height: 100vh;
+  --cream: #faf8f4;
+  --cream-dark: #f5f0e8;
+  --accent: #c4a77d;
+  --accent-dark: #a08050;
+  --charcoal: #2a2a2a;
+  --warm-gray: #6b5b4f;
+  --text: #1a1a1a;
+}
+
+.jzzw-v1-cream ::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Nav */
+.jzzw-v1-cream .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.jzzw-v1-cream .nav.scrolled {
+  background: rgba(250, 248, 244, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.jzzw-v1-cream .nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.jzzw-v1-cream .nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.jzzw-v1-cream .nav-links a {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.jzzw-v1-cream .nav-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* Hero */
+.jzzw-v1-cream .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 4rem;
+}
+
+.jzzw-v1-cream .hero-content {
+  text-align: center;
+  max-width: 900px;
+}
+
+.jzzw-v1-cream .hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.jzzw-v1-cream .hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.jzzw-v1-cream .hero-title strong {
+  font-weight: 700;
+}
+
+.jzzw-v1-cream .hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--warm-gray);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+
+.jzzw-v1-cream .hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jzzw-v1-cream .btn-primary {
+  padding: 1rem 2.5rem;
+  background: var(--text);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.jzzw-v1-cream .btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.jzzw-v1-cream .btn-secondary {
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.jzzw-v1-cream .btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Products Grid */
+.jzzw-v1-cream .products {
+  padding: 6rem 4rem;
+}
+
+.jzzw-v1-cream .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.jzzw-v1-cream .section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.jzzw-v1-cream .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.jzzw-v1-cream .products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.jzzw-v1-cream .product-card {
+  background: white;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.jzzw-v1-cream .product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.jzzw-v1-cream .product-image {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #f0ebe3 0%, #e5ddd0 100%);
+  position: relative;
+}
+
+.jzzw-v1-cream .product-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+}
+
+.jzzw-v1-cream .product-info {
+  padding: 1.5rem;
+}
+
+.jzzw-v1-cream .product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.jzzw-v1-cream .product-price {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Footer */
+.jzzw-v1-cream .footer {
+  padding: 4rem;
+  background: var(--charcoal);
+  color: white;
+}
+
+.jzzw-v1-cream .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jzzw-v1-cream .footer-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.jzzw-v1-cream .footer-text {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .jzzw-v1-cream .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jzzw-v1-cream .nav {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .jzzw-v1-cream .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .jzzw-v1-cream .nav-links {
+    display: none;
+  }
+  .jzzw-v1-cream .hero {
+    padding: 4rem 1.5rem;
+  }
+  .jzzw-v1-cream .products {
+    padding: 4rem 1.5rem;
+  }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<div class="jzzw-v1-cream" id="jzzw-v1-cream">
+  <!-- Navigation -->
+  <nav class="nav" id="jzzw-nav">
+    <a href="/" class="nav-brand">{{ section.settings.brand_name | default: 'JZZW' }}</a>
+    <div class="nav-links">
+      <a href="#collection">{{ section.settings.nav_collection | default: 'Collection' }}</a>
+      <a href="#about">{{ section.settings.nav_about | default: 'About' }}</a>
+      <a href="#contact">{{ section.settings.nav_contact | default: 'Contact' }}</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">{{ section.settings.hero_eyebrow | default: 'Spring / Summer 2026' }}</p>
+      <h1 class="hero-title">{{ section.settings.hero_title | default: 'American Luxury<br><strong>Streetwear</strong>' }}</h1>
+      <p class="hero-sub">{{ section.settings.hero_subtitle | default: 'Where street culture meets refined craftsmanship. Every piece tells a story of dedication, quality, and uncompromising style.' }}</p>
+      <div class="hero-cta">
+        <a href="#collection" class="btn-primary">{{ section.settings.cta_primary | default: 'Shop Collection' }}</a>
+        <a href="#about" class="btn-secondary">{{ section.settings.cta_secondary | default: 'Learn More' }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="collection">
+    <div class="section-header">
+      <p class="section-label">{{ section.settings.collection_label | default: 'The Collection' }}</p>
+      <h2 class="section-title">{{ section.settings.collection_title | default: 'SS 2026 Drop' }}</h2>
+    </div>
+    <div class="products-grid">
+      {% for block in section.blocks %}
+        <div class="product-card" {{ block.shopify_attributes }}>
+          <div class="product-image">
+            {% if block.settings.badge != blank %}
+              <span class="product-badge">{{ block.settings.badge }}</span>
+            {% endif %}
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ block.settings.product_name | default: 'Product Name' }}</h3>
+            <p class="product-price">{{ block.settings.product_price | default: '$185' }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">{{ section.settings.brand_name | default: 'JZZW' }}</div>
+      <p class="footer-text">© {{ 'now' | date: '%Y' }} JZZW. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function() {
+  var nav = document.getElementById('jzzw-nav');
+  if (nav) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "JZZW V1 Cream",
+  "tag": "section",
+  "class": "jzzw-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "JZZW"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Hero Eyebrow Text",
+      "default": "Spring / Summer 2026"
+    },
+    {
+      "type": "richtext",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "<p>American Luxury<br><strong>Streetwear</strong></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "Where street culture meets refined craftsmanship. Every piece tells a story of dedication, quality, and uncompromising style."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary",
+      "label": "Primary Button Text",
+      "default": "Shop Collection"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary",
+      "label": "Secondary Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "text",
+      "id": "nav_collection",
+      "label": "Nav: Collection Link Text",
+      "default": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "nav_about",
+      "label": "Nav: About Link Text",
+      "default": "About"
+    },
+    {
+      "type": "text",
+      "id": "nav_contact",
+      "label": "Nav: Contact Link Text",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "collection_label",
+      "label": "Collection Label",
+      "default": "The Collection"
+    },
+    {
+      "type": "text",
+      "id": "collection_title",
+      "label": "Collection Title",
+      "default": "SS 2026 Drop"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Obsidian Bomber"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "label": "Product Price",
+          "default": "$320"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge Text (optional)",
+          "default": "Pre-Order"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JZZW V1 Cream",
+      "blocks": [
+        { "type": "product", "settings": { "product_name": "Obsidian Bomber", "product_price": "$320", "badge": "Pre-Order" } },
+        { "type": "product", "settings": { "product_name": "Gold Seam Hoodie", "product_price": "$185", "badge": "" } },
+        { "type": "product", "settings": { "product_name": "Archive Trench", "product_price": "$450", "badge": "" } },
+        { "type": "product", "settings": { "product_name": "Signature Tee", "product_price": "$95", "badge": "New" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
