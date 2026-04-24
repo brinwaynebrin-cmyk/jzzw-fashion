@@ -1,82 +1,73 @@
-﻿# JZZW Shopify Sections
+﻿# JZZW Shopify Theme Sections
 
-11 premium Shopify Theme Section files for JZZW streetwear brand. Each section is a complete, self-contained design theme.
+14 premium Shopify Theme Section files for the JZZW American streetwear brand. Each section is a complete, self-contained design theme — paste into Shopify, save, and customize.
 
-## How to Install
+## Quick Install
 
-1. Go to Shopify Admin → **Online Store** → **Themes** → **Edit code**
-2. In the left sidebar, click **Add a new section**
-3. Copy the entire contents of any `.liquid` file and paste into the new section
-4. Name it (e.g. `jzzw-v11-midnight-atelier`)
-5. Click **Save**
-6. Go to **Customize** → **Add section** → find your section
-7. Click the section to configure products and text
+1. Shopify Admin → **Online Store** → **Themes** → **Edit code**
+2. **Add a new section** → paste any `.liquid` file contents → save
+3. **Customize** → **Add section** → select the section
+4. Configure text + product blocks in the theme editor
 
 ---
 
-## Section Versions
+## Section Catalog
 
-### V11 — Midnight Atelier
-- **Style**: Deep charcoal + champagne gold + ivory serif
-- **Font**: Cormorant Garamond + DM Sans
-- **Feel**: Ultra-premium editorial, quiet luxury
-- **File**: `jzzw-v11-midnight-atelier.liquid`
-
-### V12 — Tokyo NYC
-- **Style**: Warm paper white + indigo + terracotta
-- **Font**: Playfair Display + Inter
-- **Feel**: Wabi-sabi meets NYC street culture
-- **File**: `jzzw-v12-tokyo-nyc.liquid`
-
-### V13 — Brutalist Luxe
-- **Style**: Pure white + near black + blood red
-- **Font**: Cormorant Garamond + Inter
-- **Feel**: Balenciaga editorial, maximum contrast
-- **File**: `jzzw-v13-brutalist-luxe.liquid`
-
----
-
-## Shopify Section Schema
-
-Each section supports:
-- **Up to 6 product cards** (via block system)
-- **All text is editable** in the theme editor
-- **No app required** — pure Shopify native
-- **Google Fonts** loaded via CDN (no custom font upload needed)
-- **Fully responsive** — mobile, tablet, desktop
-
-### Product Card Block Settings
-| Field | Description |
-|-------|-------------|
-| `name` | Product display name |
-| `price` | Price (e.g. "$320") |
-| `detail` | Material / detail line |
-| `badge` | Optional badge (e.g. "PRE-ORDER", "NEW") |
-
-### Hero Customizable Settings
-- Brand name, season tag, hero title, hero body text
-- CTA button text, emblem text
-- Strip ticker text (4 items)
-- Editorial section heading + body
-- Collection title + label + count
-- Quote text + philosophy label
-- Footer location text
+| # | File | Style | Palette | Font Pair |
+|---|------|-------|---------|-----------|
+| V1 | `jzzw-v1-cream.liquid` | Cream Elegant | Ivory, Gold, Charcoal | Cormorant + DM Sans |
+| V2 | `jzzw-v2-black-gold.liquid` | Black Gold Luxury | #0d0d0d, Gold | Bebas Neue + Space Grotesk |
+| V3 | `jzzw-v3-editorial.liquid` | Vogue Editorial | Ivory, Black | Playfair Display + Inter |
+| V4 | `jzzw-v4-cinematic.liquid` | Cinematic Parallax | #0a0a0a, Red | Outfit |
+| V5 | `jzzw-v5-digital.liquid` | Digital Cyberpunk | #050510, Cyan | Oxanium + Rajdhani |
+| V6 | `jzzw-v6-magnetic.liquid` | Magnetic Luxury | White, Gold | DM Sans |
+| V7 | `jzzw-v7-kinetic.liquid` | Kinetic Typography | #0d0d0d, White | Syne |
+| V8 | `jzzw-v8-noir-atelier.liquid` | Noir Atelier | #141414, Ivory, Gold | Cormorant Garamond + DM Sans |
+| V9 | `jzzw-v9-brutalist.liquid` | Brutalist | White, Black, Red | Syne + Inter |
+| V10 | `jzzw-v10-studio-archive.liquid` | Studio Archive | #f0ede8, Brown, Navy | Libre Baskerville + Work Sans |
+| V11 | `jzzw-v11-midnight-atelier.liquid` | Midnight Atelier | #1c1c1c, Gold, Ivory | Cormorant Garamond + DM Sans |
+| V12 | `jzzw-v12-tokyo-nyc.liquid` | Tokyo NYC | Paper, Indigo, Terracotta | Playfair Display + Inter |
+| V13 | `jzzw-v13-brutalist-luxe.liquid` | Brutalist Luxe | White, Black, Blood Red | Cormorant Garamond + Inter |
+| V14 | `jzzw-v14-retrograde.liquid` | Retrograde | #f4efe6, Navy, Rust | Playfair Display + Work Sans |
 
 ---
 
-## Block Type Reference
+## Design Direction Map
 
-```liquid
-{% for block in section.blocks %}
-  {{ block.shopify_attributes }}   <!-- Required on each card wrapper -->
-  {{ block.settings.name }}
-  {{ block.settings.price }}
-  {{ block.settings.detail }}
-  {{ block.settings.badge }}
-{% endfor %}
-```
+**Quiet Luxury / Editorial**
+V1, V6, V8, V11 — Serif-forward, restrained, premium feel. Reference: The Row, Celine, Loro Piana.
 
-Each section comes with a **Preset** — click "Add section" and the default products will auto-populate so you can see it in action immediately.
+**Street / Dark / Bold**
+V2, V4, V5, V7 — High contrast, strong type, edgy energy. Reference: Off-White, Fear of God, Yeezy Gap.
+
+**Magazine / Fashion Editorial**
+V3, V13 — Oversized type, aggressive whitespace, fashion campaign feel. Reference: Balenciaga, Maison Margiela.
+
+**Cultural / Heritage**
+V10, V12, V14 — Story-driven, craft-focused, authentic voice. Reference:visvim, Engineered Garments, Kapital.
+
+**Digital / Future**
+V5 — Cyberpunk aesthetic, tech-forward. Reference: RTFKT, Auroboros, Concept.
+
+---
+
+## Schema Features
+
+All sections include:
+- ✅ Up to 6 product card blocks
+- ✅ Full theme editor text customization
+- ✅ Google Fonts via CDN (no upload needed)
+- ✅ Responsive (mobile / tablet / desktop)
+- ✅ Preset with sample products (auto-populate on add)
+- ✅ No app required — 100% Shopify native
+
+### Block Settings
+| Field | Type |
+|-------|------|
+| `name` | text |
+| `price` | text |
+| `detail` | text (material/fabric) |
+| `badge` | text (e.g. "PRE-ORDER", "NEW") |
 
 ---
 
