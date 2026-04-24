@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JZZW — Design Versions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        .header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .version-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .version-card:hover {
+            transform: translateY(-4px);
+            border-color: #c4a77d;
+        }
+        .version-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+        .version-v1 { background: linear-gradient(135deg, #faf9f7 0%, #f0eeeb 100%); color: #1a1a1a; }
+        .version-v2 { background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%); color: #d4af37; border: 1px solid #333; }
+        .version-v3 { background: linear-gradient(135deg, #f5f1e8 0%, #2c4a5e 100%); color: #fff; }
+        .version-info {
+            padding: 1.5rem;
+        }
+        .version-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .version-desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .version-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #c4a77d;
+            color: #0d0d0d;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        .version-link:hover {
+            background: #d4b78d;
+        }
+        .version-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #333;
+            color: #888;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>JZZW Design Versions</h1>
+            <p>Choose your preferred direction for the brand</p>
+        </div>
+        <div class="versions-grid">
+            <div class="version-card">
+                <div class="version-preview version-v1">Cream Elegance</div>
+                <div class="version-info">
+                    <span class="version-tag">V1</span>
+                    <h3 class="version-name">Cream Elegance</h3>
+                    <p class="version-desc">
+                        Warm cream tones with gold accents. Inspired by Kith and Aime Leon Dore. 
+                        Elegant, approachable, magazine-quality aesthetic.
+                    </p>
+                    <a href="index.html" class="version-link" target="_blank">View Live →</a>
+                </div>
+            </div>
+            <div class="version-card">
+                <div class="version-preview version-v2">Luxe Street</div>
+                <div class="version-info">
+                    <span class="version-tag">V2</span>
+                    <h3 class="version-name">Luxe Street</h3>
+                    <p class="version-desc">
+                        Black and gold luxury meets street edge. Inspired by Fear of God and Rhude. 
+                        Bold, exclusive, high-fashion attitude.
+                    </p>
+                    <a href="index-v3-luxe-street.html" class="version-link" target="_blank">View Live →</a>
+                </div>
+            </div>
+            <div class="version-card">
+                <div class="version-preview version-v3">Mediterranean</div>
+                <div class="version-info">
+                    <span class="version-tag">V3</span>
+                    <h3 class="version-name">Mediterranean</h3>
+                    <p class="version-desc">
+                        Sun-soaked coastlines and relaxed luxury. Inspired by Jacquemus. 
+                        Warm, inviting, vacation-ready vibes.
+                    </p>
+                    <a href="index-v4-med.html" class="version-link" target="_blank">View Live →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
