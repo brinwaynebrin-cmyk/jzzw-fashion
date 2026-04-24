@@ -1,0 +1,116 @@
+﻿{%- comment -%} JZZW V3 Editorial - Shopify Section (Vogue/i-D style) {%- endcomment -%}
+<style>
+.jzzw-v3-edit *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v3-edit{font-family:'Playfair Display',Georgia,serif;background:#faf8f5;color:#1a1a1a;min-height:100vh;overflow-x:hidden}
+.jzzw-v3-edit ::selection{background:#1a1a1a;color:#fff}
+.jzzw-v3-edit .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid rgba(0,0,0,.06);background:rgba(250,248,245,.95);backdrop-filter:blur(10px)}
+.jzzw-v3-edit .nav-brand{font-size:.9rem;font-weight:400;letter-spacing:.3em;text-decoration:none;color:#1a1a1a}
+.jzzw-v3-edit .nav-links{display:flex;gap:2rem}
+.jzzw-v3-edit .nav-links a{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#1a1a1a;opacity:.4;transition:opacity .3s}
+.jzzw-v3-edit .nav-links a:hover{opacity:1}
+.jzzw-v3-edit .hero{padding:8rem 0 4rem;display:grid;grid-template-columns:55% 45%;min-height:90vh}
+.jzzw-v3-edit .hero-left{padding:4rem 3rem 4rem 4rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.jzzw-v3-edit .hero-issue{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:1rem}
+.jzzw-v3-edit .hero-title{font-size:clamp(3rem,7vw,6rem);line-height:1.05;font-weight:400;margin-bottom:1.5rem}
+.jzzw-v3-edit .hero-title em{font-style:italic;color:#888}
+.jzzw-v3-edit .hero-deck{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:300;line-height:1.8;color:rgba(0,0,0,.5);max-width:380px}
+.jzzw-v3-edit .hero-cta{margin-top:2rem}
+.jzzw-v3-edit .hero-cta a{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#1a1a1a;border-bottom:1px solid #1a1a1a;padding-bottom:.2rem;transition:border-color .3s}
+.jzzw-v3-edit .hero-cta a:hover{border-color:#888}
+.jzzw-v3-edit .hero-right{position:relative;background:linear-gradient(135deg,#e8e3da 0%,#d5cec3 100%)}
+.jzzw-v3-edit .hero-img-label{position:absolute;bottom:2rem;left:2rem;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.15em;color:rgba(0,0,0,.4);text-transform:uppercase}
+.jzzw-v3-edit .hero-img-label::before{content:'— ';opacity:.5}
+.jzzw-v3-edit .interview{padding:8rem 4rem;max-width:1400px;margin:0 auto}
+.jzzw-v3-edit .interview-grid{display:grid;grid-template-columns:40% 60%;gap:6rem;align-items:start}
+.jzzw-v3-edit .interview-label{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:2rem}
+.jzzw-v3-edit .interview-q{font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.4;margin-bottom:2rem;font-weight:400}
+.jzzw-v3-edit .interview-a{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:300;line-height:2;color:rgba(0,0,0,.55)}
+.jzzw-v3-edit .interview-byline{font-family:'Inter',sans-serif;font-size:.7rem;color:rgba(0,0,0,.3);margin-top:3rem;letter-spacing:.1em}
+.jzzw-v3-edit .products{padding:4rem 4rem 8rem}
+.jzzw-v3-edit .products-header{padding:0 2rem;margin-bottom:4rem;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:2rem}
+.jzzw-v3-edit .products-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:400}
+.jzzw-v3-edit .products-link{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:#1a1a1a;opacity:.4;transition:opacity .3s}
+.jzzw-v3-edit .products-link:hover{opacity:1}
+.jzzw-v3-edit .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.jzzw-v3-edit .product-card{position:relative}
+.jzzw-v3-edit .product-img{aspect-ratio:2/3;background:linear-gradient(135deg,#f0ebe3 0%,#e2dbd1 100%);margin-bottom:1.5rem;position:relative;overflow:hidden}
+.jzzw-v3-edit .product-num{position:absolute;top:1rem;left:1rem;font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(0,0,0,.2);letter-spacing:.1em}
+.jzzw-v3-edit .product-name{font-size:1.1rem;font-weight:400;margin-bottom:.3rem}
+.jzzw-v3-edit .product-detail{font-family:'Inter',sans-serif;font-size:.75rem;color:rgba(0,0,0,.4);font-weight:300}
+.jzzw-v3-edit .product-price{font-family:'Inter',sans-serif;font-size:.9rem;color:#1a1a1a;margin-top:.5rem}
+.jzzw-v3-edit .footer{padding:4rem;background:#f0ebe3;border-top:1px solid rgba(0,0,0,.06)}
+.jzzw-v3-edit .footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v3-edit .footer-brand{font-size:1.2rem;letter-spacing:.3em}
+.jzzw-v3-edit .footer-text{font-family:'Inter',sans-serif;font-size:.7rem;color:rgba(0,0,0,.3);letter-spacing:.05em}
+@media(max-width:900px){
+.jzzw-v3-edit .hero{grid-template-columns:1fr}
+.jzzw-v3-edit .interview-grid{grid-template-columns:1fr;gap:3rem}
+.jzzw-v3-edit .products-grid{grid-template-columns:repeat(2,1fr)}
+.jzzw-v3-edit .nav{padding:1rem 2rem}
+}
+@media(max-width:600px){
+.jzzw-v3-edit .products-grid{grid-template-columns:1fr}
+.jzzw-v3-edit .nav-links{display:none}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<div class="jzzw-v3-edit">
+<nav class="nav">
+<a href="/" class="nav-brand">{{ section.settings.brand_name | default: 'JZZW' }}</a>
+<div class="nav-links">
+<a href="#collection">{{ section.settings.nav_collection | default: 'Collection' }}</a>
+<a href="#interview">{{ section.settings.nav_story | default: 'Story' }}</a>
+<a href="#footer">{{ section.settings.nav_contact | default: 'Contact' }}</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-left">
+<p class="hero-issue">{{ section.settings.hero_issue | default: 'Spring / Summer 2026 — Issue No. 12' }}</p>
+<h1 class="hero-title">{{ section.settings.hero_title | default: 'The New<br><em>American</em><br>Standard' }}</h1>
+<p class="hero-deck">{{ section.settings.hero_deck | default: 'In an industry obsessed with the next drop, JZZW is betting on permanence. A conversation about craft, obsession, and the quiet luxury of doing things right.' }}</p>
+<div class="hero-cta"><a href="#collection">{{ section.settings.cta_shop | default: 'Explore the Collection' }}</a></div>
+</div>
+<div class="hero-right">
+<span class="hero-img-label">{{ section.settings.hero_img_label | default: 'Obsidian Bomber, SS 2026' }}</span>
+</div>
+</section>
+<section class="interview" id="interview">
+<div class="interview-grid">
+<div>
+<p class="interview-label">{{ section.settings.interview_label | default: 'In Conversation' }}</p>
+<h2 class="interview-q">{{ section.settings.interview_q | default: 'Why did you start JZZW?' }}</h2>
+</div>
+<div>
+<p class="interview-a">{{ section.settings.interview_a | default: 'Because I was tired of choosing between streetwear that looked cheap and luxury brands that felt hollow. I wanted to create something that had the attitude of the streets but the standards of the atelier. Every piece we make is a statement that you do not have to compromise quality for identity.' }}</p>
+<p class="interview-byline">— {{ section.settings.interview_author | default: 'Founder, JZZW Studio' }}</p>
+</div>
+</div>
+</section>
+<section class="products" id="collection">
+<div class="products-header">
+<h2 class="products-title">{{ section.settings.collection_title | default: 'The Collection' }}</h2>
+<a href="#" class="products-link">{{ section.settings.collection_link | default: 'View All Pieces →' }}</a>
+</div>
+<div class="products-grid">
+{% for block in section.blocks %}
+<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">
+<span class="product-num">{{ forloop.index | string | pad_left: 2, '0' }}</span>
+</div>
+<h3 class="product-name">{{ block.settings.product_name | default: 'Product' }}</h3>
+<p class="product-detail">{{ block.settings.product_detail | default: 'Premium Fabric' }}</p>
+<p class="product-price">{{ block.settings.product_price | default: '$185' }}</p>
+</div>
+{% endfor %}
+</div>
+</section>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div class="footer-brand">{{ section.settings.brand_name | default: 'JZZW' }}</div>
+<p class="footer-text">© {{ 'now' | date: '%Y' }} — {{ section.settings.footer_tagline | default: 'New York' }}</p>
+</div>
+</footer>
+</div>
+{% schema %}{"name":"JZZW V3 Editorial","tag":"section","class":"jzzw-section","settings":[{"type":"text","id":"brand_name","label":"Brand Name","default":"JZZW"},{"type":"text","id":"hero_issue","label":"Hero Issue Text","default":"Spring / Summer 2026 — Issue No. 12"},{"type":"textarea","id":"hero_title","label":"Hero Title","default":"The New<br><em>American</em><br>Standard"},{"type":"textarea","id":"hero_deck","label":"Hero Deck Text","default":"In an industry obsessed with the next drop, JZZW is betting on permanence."},{"type":"text","id":"cta_shop","label":"CTA Button","default":"Explore the Collection"},{"type":"text","id":"hero_img_label","label":"Hero Image Label","default":"Obsidian Bomber, SS 2026"},{"type":"text","id":"interview_label","label":"Interview Label","default":"In Conversation"},{"type":"textarea","id":"interview_q","label":"Interview Question","default":"Why did you start JZZW?"},{"type":"textarea","id":"interview_a","label":"Interview Answer","default":"Because I was tired of choosing between streetwear that looked cheap and luxury brands that felt hollow."},{"type":"text","id":"interview_author","label":"Interview Author","default":"Founder, JZZW Studio"},{"type":"text","id":"nav_collection","label":"Nav: Collection","default":"Collection"},{"type":"text","id":"nav_story","label":"Nav: Story","default":"Story"},{"type":"text","id":"nav_contact","label":"Nav: Contact","default":"Contact"},{"type":"text","id":"collection_title","label":"Collection Title","default":"The Collection"},{"type":"text","id":"collection_link","label":"Collection Link Text","default":"View All Pieces →"},{"type":"text","id":"footer_tagline","label":"Footer Tagline","default":"New York"}],"blocks":[{"type":"product","name":"Product","limit":8,"settings":[{"type":"text","id":"product_name","label":"Product Name","default":"Obsidian Bomber"},{"type":"text","id":"product_price","label":"Price","default":"$320"},{"type":"text","id":"product_detail","label":"Detail","default":"Japanese Nylon, Hand-finished"}]}],"presets":[{"name":"JZZW V3 Editorial","blocks":[{"type":"product","settings":{"product_name":"Obsidian Bomber","product_price":"$320","product_detail":"Japanese Nylon"}},{"type":"product","settings":{"product_name":"Gold Seam Hoodie","product_price":"$185","product_detail":"400gsm Cotton"}},{"type":"product","settings":{"product_name":"Archive Trench","product_price":"$450","product_detail":"Italian Wool Blend"}},{"type":"product","settings":{"product_name":"Signature Tee","product_price":"$95","product_detail":"Supima Cotton"}},{"type":"product","settings":{"product_name":"Shadow Cargo","product_price":"$240","product_detail":"Japanese Cotton Twill"}},{"type":"product","settings":{"product_name":"Midnight Denim","product_price":"$280","product_detail":"Selvedge Denim"}}]}]}{% endschema %}
