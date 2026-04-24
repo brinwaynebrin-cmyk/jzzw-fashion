@@ -1,0 +1,239 @@
+﻿{% comment %} JZZW V10 Studio Archive — Shopify Section (Archive / Photography / Craft) {% endcomment %}
+<style>
+.jzzw-v10{--bg:#f0ede8;--fg:#1a1714;--accent:#8b6e5a;--line:rgba(26,23,20,.1);--serif:'Libre Baskerville',Georgia,serif;--sans:'Work Sans',sans-serif}
+.jzzw-v10 *{margin:0;padding:0;box-sizing:border-box}
+.jzzw-v10{font-family:var(--sans);background:var(--bg);color:var(--fg);min-height:100vh;overflow-x:hidden;line-height:1.65}
+.jzzw-v10 ::selection{background:var(--fg);color:var(--bg)}
+.jzzw-v10 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;background:rgba(240,237,232,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.jzzw-v10 .nav-brand{font-family:var(--serif);font-size:.9rem;font-weight:400;letter-spacing:.1em;text-decoration:none;color:var(--fg);font-style:italic}
+.jzzw-v10 .nav-links{display:flex;gap:2.5rem}
+.jzzw-v10 .nav-links a{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--fg);opacity:.35;transition:opacity .3s}
+.jzzw-v10 .nav-links a:hover{opacity:.85}
+.jzzw-v10 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.jzzw-v10 .hero-left{padding:7rem 4rem 5rem 5rem;display:flex;flex-direction:column;justify-content:center;position:relative;background:linear-gradient(145deg,#ede9e3 0%,#e8e3dc 100%)}
+.jzzw-v10 .hero-left::before{content:'';position:absolute;top:0;right:0;bottom:0;width:1px;background:var(--line)}
+.jzzw-v10 .hero-tag{font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.jzzw-v10 .hero-tag-right{font-family:var(--sans);font-size:.58rem;letter-spacing:.2em;color:var(--fg);opacity:.3}
+.jzzw-v10 .hero-title{font-family:var(--serif);font-size:clamp(3rem,7vw,5.5rem);font-weight:400;line-height:1.08;letter-spacing:-.01em;margin-bottom:1.5rem}
+.jzzw-v10 .hero-title em{font-style:italic;color:var(--accent)}
+.jzzw-v10 .hero-sub{font-size:.9rem;font-weight:300;line-height:2;color:rgba(26,23,20,.45);max-width:360px;margin-bottom:2.5rem}
+.jzzw-v10 .hero-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.jzzw-v10 .btn-archive{padding:.95rem 2.2rem;background:var(--fg);color:var(--bg);text-decoration:none;font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:all .3s}
+.jzzw-v10 .btn-archive:hover{background:var(--accent);color:#fff}
+.jzzw-v10 .btn-archive-ghost{padding:.95rem 2rem;background:transparent;color:var(--fg);text-decoration:none;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--line);transition:all .3s}
+.jzzw-v10 .btn-archive-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.jzzw-v10 .hero-right{background:linear-gradient(145deg,#1a1714 0%,#252220 50%,#1a1714 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem}
+.jzzw-v10 .hero-right::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.01) 3px,rgba(255,255,255,.01) 4px),repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(255,255,255,.01) 3px,rgba(255,255,255,.01) 4px)}
+.jzzw-v10 .hero-right::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(139,110,90,.12) 0%,transparent 55%)}
+.jzzw-v10 .hero-img-area{position:relative;z-index:1}
+.jzzw-v10 .hero-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.jzzw-v10 .hero-img-block{aspect-ratio:1;background:rgba(255,255,255,.04);position:relative;overflow:hidden}
+.jzzw-v10 .hero-img-block::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.02) 2px,rgba(255,255,255,.02) 3px)}
+.jzzw-v10 .hero-img-block-num{position:absolute;bottom:.8rem;right:.8rem;font-size:.55rem;color:rgba(255,255,255,.15);letter-spacing:.1em}
+.jzzw-v10 .hero-caption-text{font-family:var(--serif);font-style:italic;font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.7}
+.jzzw-v10 .hero-caption-text em{color:rgba(255,255,255,.5);font-style:normal}
+.jzzw-v10 .strip{background:var(--fg);padding:1rem 0;overflow:hidden;border-bottom:1px solid rgba(26,23,20,.15)}
+.jzzw-v10 .strip-inner{display:inline-flex;animation:marquee 22s linear infinite}
+.jzzw-v10 .strip-item{font-family:var(--serif);font-size:.75rem;font-style:italic;color:var(--bg);padding:0 2.5rem;white-space:nowrap;opacity:.5}
+.jzzw-v10 .strip-item::after{content:'—';margin-left:2.5rem;opacity:.4}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.jzzw-v10 .archive{padding:10rem 5rem;display:grid;grid-template-columns:45% 55%;gap:8rem;align-items:center;max-width:1300px;margin:0 auto}
+.jzzw-v10 .archive-num{font-family:var(--serif);font-size:6rem;font-weight:400;color:var(--fg);opacity:.06;line-height:1;margin-bottom:1rem}
+.jzzw-v10 .archive-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
+.jzzw-v10 .archive-heading{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1.15;margin-bottom:2rem}
+.jzzw-v10 .archive-heading em{font-style:italic;color:var(--accent)}
+.jzzw-v10 .archive-body{font-size:.88rem;font-weight:300;line-height:2.1;color:rgba(26,23,20,.45)}
+.jzzw-v10 .archive-detail{font-family:var(--serif);font-size:.85rem;font-style:italic;color:var(--accent);margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)}
+.jzzw-v10 .products{padding:8rem 5rem;background:var(--bg);border-top:1px solid var(--line)}
+.jzzw-v10 .products-header{margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end}
+.jzzw-v10 .products-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.jzzw-v10 .products-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400}
+.jzzw-v10 .products-count{font-size:.72rem;color:rgba(26,23,20,.25);letter-spacing:.1em}
+.jzzw-v10 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.jzzw-v10 .product-card{background:#fff;border:1px solid var(--line);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.jzzw-v10 .product-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(26,23,20,.08)}
+.jzzw-v10 .product-img{aspect-ratio:3/4;background:linear-gradient(145deg,#e8e3dc 0%,#ddd8d0 100%);position:relative;overflow:hidden}
+.jzzw-v10 .product-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(139,110,90,.08) 0%,transparent 50%)}
+.jzzw-v10 .product-num{position:absolute;top:1rem;left:1rem;font-size:.58rem;color:rgba(26,23,20,.15);letter-spacing:.1em}
+.jzzw-v10 .product-badge{position:absolute;top:1rem;right:1rem;background:var(--accent);color:#fff;font-size:.5rem;font-weight:700;letter-spacing:.1em;padding:.25rem .6rem}
+.jzzw-v10 .product-info{padding:1.5rem;border-top:1px solid var(--line)}
+.jzzw-v10 .product-name{font-family:var(--serif);font-size:1rem;font-weight:400;margin-bottom:.3rem}
+.jzzw-v10 .product-detail{font-size:.72rem;color:rgba(26,23,20,.35);margin-bottom:.7rem}
+.jzzw-v10 .product-price{font-size:1rem;font-weight:600;color:var(--accent)}
+.jzzw-v10 .quote-section{padding:8rem 5rem;background:#fff;border-top:1px solid var(--line);text-align:center}
+.jzzw-v10 .quote-inner{max-width:700px;margin:0 auto}
+.jzzw-v10 .quote-label{font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--accent);margin-bottom:2.5rem}
+.jzzw-v10 .quote-text{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.8rem);font-weight:400;font-style:italic;line-height:1.7;color:rgba(26,23,20,.6)}
+.jzzw-v10 .quote-text .accent{color:var(--accent);font-style:normal}
+.jzzw-v10 .footer{background:var(--fg);padding:4rem 5rem}
+.jzzw-v10 .footer-inner{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.jzzw-v10 .footer-brand{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--bg);opacity:.4}
+.jzzw-v10 .footer-links{display:flex;gap:2.5rem}
+.jzzw-v10 .footer-links a{font-size:.68rem;color:rgba(240,237,232,.2);text-decoration:none;transition:color .3s}
+.jzzw-v10 .footer-links a:hover{color:var(--accent)}
+.jzzw-v10 .footer-copy{font-size:.68rem;color:rgba(240,237,232,.15)}
+@media(max-width:1024px){.jzzw-v10 .archive{grid-template-columns:1fr;gap:3rem;padding:6rem 3rem}.jzzw-v10 .products-grid{grid-template-columns:repeat(2,1fr)}.jzzw-v10 .nav{padding:1.2rem 2rem}}
+@media(max-width:768px){.jzzw-v10 .hero{grid-template-columns:1fr}.jzzw-v10 .hero-right{min-height:60vh}.jzzw-v10 .products{padding:5rem 2rem}.jzzw-v10 .archive{padding:5rem 2rem}.jzzw-v10 .footer{flex-direction:column;gap:2rem;padding:3rem 2rem}.jzzw-v10 .footer-links{flex-wrap:wrap;gap:1.5rem}}
+@media(max-width:480px){.jzzw-v10 .products-grid{grid-template-columns:1fr}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<div class="jzzw-v10">
+<nav class="nav">
+<a href="/" class="nav-brand">{{ section.settings.brand | default: 'JZZW' }}</a>
+<div class="nav-links">
+<a href="#collection">{{ section.settings.n1 | default: 'Collection' }}</a>
+<a href="#archive">{{ section.settings.n2 | default: 'Archive' }}</a>
+<a href="#footer">{{ section.settings.n3 | default: 'Contact' }}</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-left">
+<div class="hero-tag">
+<span>{{ section.settings.tag | default: 'Archive Studio — SS 2026' }}</span>
+<span class="hero-tag-right">{{ section.settings.tag_right | default: 'No. 001' }}</span>
+</div>
+<h1 class="hero-title">{{ section.settings.title | default: 'Studio<br><em>Archive</em>' }}</h1>
+<p class="hero-sub">{{ section.settings.sub | default: 'Fashion is ephemeral. Craft is not. The Studio Archive collection is our permanent record — pieces designed to outlast trends, outlast seasons, outlast everything.' }}</p>
+<div class="hero-actions">
+<a href="#collection" class="btn-archive">{{ section.settings.cta | default: 'Shop Collection' }}</a>
+<a href="#archive" class="btn-archive-ghost">{{ section.settings.cta2 | default: 'Read Story' }}</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-img-area">
+<div class="hero-img-grid">
+<div class="hero-img-block"><span class="hero-img-block-num">01</span></div>
+<div class="hero-img-block"><span class="hero-img-block-num">02</span></div>
+<div class="hero-img-block"><span class="hero-img-block-num">03</span></div>
+<div class="hero-img-block"><span class="hero-img-block-num">04</span></div>
+</div>
+<p class="hero-caption-text">{{ section.settings.caption | default: 'Each piece archived. <em>Never discontinued.</em>' }}</p>
+</div>
+</div>
+</section>
+<div class="strip">
+<div class="strip-inner">
+<span class="strip-item">{{ section.settings.s1 | default: 'Studio Archive' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'Craft Over Trend' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'New York' }}</span>
+<span class="strip-item">{{ section.settings.s1 | default: 'Studio Archive' }}</span>
+<span class="strip-item">{{ section.settings.s2 | default: 'Craft Over Trend' }}</span>
+<span class="strip-item">{{ section.settings.s3 | default: 'SS 2026' }}</span>
+<span class="strip-item">{{ section.settings.s4 | default: 'New York' }}</span>
+</div>
+</div>
+<section class="archive" id="archive">
+<div>
+<p class="archive-num">{{ section.settings.arc_num | default: '001' }}</p>
+<p class="archive-label">{{ section.settings.arc_label | default: 'The Archive' }}</p>
+<h2 class="archive-heading">{{ section.settings.arc_title | default: 'Craft is the <em>only</em><br>currency' }}</h2>
+</div>
+<div>
+<p class="archive-body">{{ section.settings.arc_body | default: 'Every piece in our archive carries a serial number. Not because we believe in exclusivity — but because we believe in accountability. When something is numbered, it matters. When something matters, it endures.' }}</p>
+<p class="archive-detail">{{ section.settings.arc_detail | default: 'Each garment hand-finished in our New York atelier. Limited quantities. Never reprinted.' }}</p>
+</div>
+</section>
+<section class="products" id="collection">
+<div class="products-header">
+<div>
+<p class="products-label">{{ section.settings.col_label | default: 'The Archive' }}</p>
+<h2 class="products-title">{{ section.settings.col_title | default: 'SS 2026 — Archive Collection' }}</h2>
+</div>
+<p class="products-count">{{ section.settings.col_count | default: '06 UNITS — SERIALIZED' }}</p>
+</div>
+<div class="products-grid">
+{% for block in section.blocks %}
+<div class="product-card" {{ block.shopify_attributes }}>
+<div class="product-img">
+<span class="product-num">#{{ forloop.index | string | pad_left: 3, '0' }}</span>
+{% if block.settings.badge %}<span class="product-badge">{{ block.settings.badge }}</span>{% endif %}
+</div>
+<div class="product-info">
+<h3 class="product-name">{{ block.settings.name | default: 'Product' }}</h3>
+<p class="product-detail">{{ block.settings.detail | default: 'Premium Fabric' }}</p>
+<p class="product-price">{{ block.settings.price | default: '$185' }}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<section class="quote-section">
+<p class="quote-label">{{ section.settings.q_label | default: 'Manifesto' }}</p>
+<p class="quote-text">{{ section.settings.quote | default: 'The archive does not <span class="accent">forget</span>.' }}</p>
+</section>
+<footer class="footer" id="footer">
+<div class="footer-inner">
+<div class="footer-brand">{{ section.settings.brand | default: 'JZZW' }}</a></div>
+<div class="footer-links">
+<a href="#">All Products</a>
+<a href="#">About</a>
+<a href="#">Stockists</a>
+<a href="#">Instagram</a>
+</div>
+<p class="footer-copy">© {{ 'now' | date: '%Y' }} — {{ section.settings.footer_loc | default: 'New York Atelier' }}</p>
+</div>
+</footer>
+</div>
+{% schema %}
+{
+  "name": "JZZW V10 Studio Archive",
+  "tag": "section",
+  "class": "jzzw-section",
+  "settings": [
+    {"type": "text", "id": "brand", "label": "Brand", "default": "JZZW"},
+    {"type": "text", "id": "tag", "label": "Hero Tag", "default": "Archive Studio — SS 2026"},
+    {"type": "text", "id": "tag_right", "label": "Hero Tag Right", "default": "No. 001"},
+    {"type": "textarea", "id": "title", "label": "Hero Title", "default": "Studio<br><em>Archive</em>"},
+    {"type": "textarea", "id": "sub", "label": "Hero Subtitle", "default": "Fashion is ephemeral. Craft is not."},
+    {"type": "text", "id": "cta", "label": "Primary CTA", "default": "Shop Collection"},
+    {"type": "text", "id": "cta2", "label": "Secondary CTA", "default": "Read Story"},
+    {"type": "textarea", "id": "caption", "label": "Hero Caption", "default": "Each piece archived. <em>Never discontinued.</em>"},
+    {"type": "text", "id": "s1", "label": "Strip 1", "default": "Studio Archive"},
+    {"type": "text", "id": "s2", "label": "Strip 2", "default": "Craft Over Trend"},
+    {"type": "text", "id": "s3", "label": "Strip 3", "default": "SS 2026"},
+    {"type": "text", "id": "s4", "label": "Strip 4", "default": "New York"},
+    {"type": "text", "id": "n1", "label": "Nav 1", "default": "Collection"},
+    {"type": "text", "id": "n2", "label": "Nav 2", "default": "Archive"},
+    {"type": "text", "id": "n3", "label": "Nav 3", "default": "Contact"},
+    {"type": "text", "id": "arc_num", "label": "Archive Number", "default": "001"},
+    {"type": "text", "id": "arc_label", "label": "Archive Label", "default": "The Archive"},
+    {"type": "textarea", "id": "arc_title", "label": "Archive Heading", "default": "Craft is the <em>only</em><br>currency"},
+    {"type": "textarea", "id": "arc_body", "label": "Archive Body", "default": "Every piece carries a serial number. Not because we believe in exclusivity — but because we believe in accountability."},
+    {"type": "text", "id": "arc_detail", "label": "Archive Detail", "default": "Each garment hand-finished in our New York atelier."},
+    {"type": "text", "id": "col_label", "label": "Collection Label", "default": "The Archive"},
+    {"type": "text", "id": "col_title", "label": "Collection Title", "default": "SS 2026 — Archive Collection"},
+    {"type": "text", "id": "col_count", "label": "Collection Count", "default": "06 UNITS — SERIALIZED"},
+    {"type": "text", "id": "q_label", "label": "Quote Label", "default": "Manifesto"},
+    {"type": "textarea", "id": "quote", "label": "Quote", "default": "The archive does not <span class=\"accent\">forget</span>."},
+    {"type": "text", "id": "footer_loc", "label": "Footer Location", "default": "New York Atelier"}
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "limit": 6,
+      "settings": [
+        {"type": "text", "id": "name", "label": "Name", "default": "Archive Bomber"},
+        {"type": "text", "id": "price", "label": "Price", "default": "$420"},
+        {"type": "text", "id": "detail", "label": "Detail", "default": "Italian Nylon, Hand-finished"},
+        {"type": "text", "id": "badge", "label": "Badge", "default": "Pre-Order"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JZZW V10 Studio Archive",
+      "blocks": [
+        {"type": "product", "settings": {"name": "Archive Bomber", "price": "$420", "detail": "Italian Nylon, Hand-finished", "badge": "Pre-Order"}},
+        {"type": "product", "settings": {"name": "Craft Hoodie", "price": "$195", "detail": "Heavy Cotton 450gsm", "badge": ""}},
+        {"type": "product", "settings": {"name": "Atelier Coat", "price": "$560", "detail": "Cashmere Blend", "badge": ""}},
+        {"type": "product", "settings": {"name": "Archive Tee", "price": "$115", "detail": "Supima Cotton", "badge": "New"}},
+        {"type": "product", "settings": {"name": "Studio Cargo", "price": "$295", "detail": "Cotton Twill", "badge": ""}},
+        {"type": "product", "settings": {"name": "Serial Denim", "price": "$350", "detail": "Selvedge Denim", "badge": ""}}
+      ]
+    }
+  ]
+}
+{% endschema %}
