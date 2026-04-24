@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JZZW — Cinematic Street</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Cinematic Hero with Video Feel */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -10%; left: -10%;
+            width: 120%; height: 120%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            animation: heroPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes heroPulse {
+            0%, 100% { transform: scale(1); filter: hue-rotate(0deg); }
+            50% { transform: scale(1.05); filter: hue-rotate(10deg); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+
+        .grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            animation: grainMove 0.5s steps(10) infinite;
+        }
+
+        @keyframes grainMove {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(-15%, 0); }
+            90% { transform: translate(10%, 5%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-pretitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #e94560;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 15vw, 12rem);
+            letter-spacing: 0.1em;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.8s;
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(90deg, #fff 0%, #e94560 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 1.1s;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 1.5s;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, #e94560, transparent);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+            0%, 100% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+
+        /* Parallax Sections */
+        .parallax-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -20%; left: 0;
+            width: 100%; height: 140%;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+        }
+
+        .parallax-bg-1 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .parallax-bg-2 {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 6rem 4rem;
+        }
+
+        /* Floating Elements */
+        .float-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .float-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 4px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .float-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .float-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(233, 69, 96, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: #e94560;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        /* Product Grid with Hover Effects */
+        .products-section {
+            padding: 8rem 4rem;
+            background: #0a0a0a;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(233, 69, 96, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.02);
+        }
+
+        .product-image {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .product-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: #e94560;
+            font-weight: 500;
+        }
+
+        /* Marquee Section */
+        .marquee-section {
+            padding: 4rem 0;
+            background: #e94560;
+            overflow: hidden;
+            transform: rotate(-2deg) scale(1.05);
+            margin: 4rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 0.2em;
+            padding: 0 3rem;
+            color: #0a0a0a;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Lookbook with Stagger */
+        .lookbook-section {
+            padding: 8rem 4rem;
+            background: #0a0a0a;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .lookbook-item {
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lookbook-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .lookbook-item:nth-child(2) { transition-delay: 0.1s; }
+        .lookbook-item:nth-child(3) { transition-delay: 0.2s; }
+        .lookbook-item:nth-child(4) { transition-delay: 0.3s; }
+        .lookbook-item:nth-child(5) { transition-delay: 0.4s; }
+        .lookbook-item:nth-child(6) { transition-delay: 0.5s; }
+
+        .lookbook-item img, .lookbook-placeholder {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .lookbook-item:hover img, .lookbook-item:hover .lookbook-placeholder {
+            transform: scale(1.1);
+        }
+
+        .lookbook-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 6rem 4rem 3rem;
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+        }
+
+        .footer-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e94560;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            max-width: 1400px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Version Switcher */
+        .version-switcher {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+        }
+
+        .version-switcher p {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1rem;
+        }
+
+        .version-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .version-btn {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .version-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .parallax-content { padding: 4rem 2rem; }
+            .products-section { padding: 4rem 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .lookbook-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="grain"></div>
+        <div class="hero-content">
+            <p class="hero-pretitle">Est. 2024</p>
+            <h1 class="hero-title"><span>JZZW</span></h1>
+            <p class="hero-subtitle">CINEMATIC STREETWEAR</p>
+        </div>
+        <div class="scroll-indicator">
+            <span style="font-size: 0.7rem; letter-spacing: 0.2em;">SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Parallax Section 1 -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-1" data-speed="0.5"></div>
+        <div class="parallax-content">
+            <div class="float-container">
+                <div class="float-card">
+                    <p class="section-label">The Philosophy</p>
+                    <h2 class="section-title">MADE FOR THE<br>SPOTLIGHT</h2>
+                    <p class="section-text">
+                        Every frame tells a story. Our designs are crafted for those who understand 
+                        that fashion is cinema—you are both the director and the star. Limited drops. 
+                        Maximum impact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products-section">
+        <div class="products-header">
+            <p class="section-label">Collection</p>
+            <h2 class="section-title">PRE-ORDER NOW</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">SS01</div>
+                <div class="product-info">
+                    <h3 class="product-name">Midnight Bomber</h3>
+                    <p class="product-price">$285.00</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">SS02</div>
+                <div class="product-info">
+                    <h3 class="product-name">Neon Hoodie</h3>
+                    <p class="product-price">$165.00</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">SS03</div>
+                <div class="product-info">
+                    <h3 class="product-name">Archive Jacket</h3>
+                    <p class="product-price">$220.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-text">LIMITED DROP — 48 HOURS ONLY — LIMITED DROP — 48 HOURS ONLY —</span>
+            <span class="marquee-text">LIMITED DROP — 48 HOURS ONLY — LIMITED DROP — 48 HOURS ONLY —</span>
+        </div>
+    </section>
+
+    <!-- Parallax Section 2 -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-2" data-speed="0.3"></div>
+        <div class="parallax-content">
+            <div class="float-container" style="display: flex; justify-content: flex-end;">
+                <div class="float-card" style="max-width: 500px;">
+                    <p class="section-label">The Process</p>
+                    <h2 class="section-title">FRAME BY<br>FRAME</h2>
+                    <p class="section-text">
+                        From concept to garment, every detail is considered. We don't follow trends—
+                        we create moments that last beyond the season.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook -->
+    <section class="lookbook-section">
+        <div class="products-header">
+            <p class="section-label">Visuals</p>
+            <h2 class="section-title">THE LOOKBOOK</h2>
+        </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item"><div class="lookbook-placeholder">01</div></div>
+            <div class="lookbook-item"><div class="lookbook-placeholder">02</div></div>
+            <div class="lookbook-item"><div class="lookbook-placeholder">03</div></div>
+            <div class="lookbook-item"><div class="lookbook-placeholder">04</div></div>
+            <div class="lookbook-item"><div class="lookbook-placeholder">05</div></div>
+            <div class="lookbook-item"><div class="lookbook-placeholder">06</div></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">JZZW</div>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Cinematic streetwear for the bold.</p>
+            </div>
+            <div>
+                <h4 style="font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1.5rem;">SHOP</h4>
+                <ul class="footer-links">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Pre-Order</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1.5rem;">COMPANY</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1.5rem;">SOCIAL</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 JZZW. All rights reserved.</p>
+            <div class="version-switcher" style="margin: 0; padding: 0; border: none;">
+                <div class="version-buttons">
+                    <a href="index.html" class="version-btn" style="background: #c4a77d; color: #0a0a0a;">V1 Cream</a>
+                    <a href="index-v3-luxe-street.html" class="version-btn" style="background: #1a1a1a; color: #d4af37; border: 1px solid #d4af37;">V2 Black Gold</a>
+                    <a href="index-v4-med.html" class="version-btn" style="background: #8B7355; color: #fff;">V3 Mediterranean</a>
+                    <a href="index-v5-parallax.html" class="version-btn" style="background: #e94560; color: #0a0a0a;">V4 Cinematic</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.parallax-bg').forEach(bg => {
+                const speed = bg.dataset.speed || 0.5;
+                bg.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.float-card, .lookbook-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
